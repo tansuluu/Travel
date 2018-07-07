@@ -11,6 +11,9 @@ import com.example.try4.service.StorageService;
 import com.example.try4.utils.SecurityUtil;
 import com.example.try4.validator.AppUserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.social.connect.Connection;
 import org.springframework.social.connect.ConnectionFactoryLocator;
@@ -28,6 +31,8 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -268,6 +273,36 @@ public class MainController {
             model.addAttribute("users",users);
         model.addAttribute("word",word);
         return "search";
+    }
+    @GetMapping("/image/{filename:.+}")
+    @ResponseBody
+    public ResponseEntity<Resource> getImage(@PathVariable String filename) {
+        Resource file = storageService.loadFile(filename);
+        String mimeType = "";
+        try {
+            mimeType = Files.probeContentType(file.getFile().toPath());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return ResponseEntity.ok()
+                .header(HttpHeaders.CONTENT_DISPOSITION, "filename=\"" + file.getFilename() + "\"")
+
+                .body(file);
+    }
+    @GetMapping("/up-avatar/{filename:.+}")
+    @ResponseBody
+    public ResponseEntity<Resource> getAvatar(@PathVariable String filename) {
+        Resource file = storageService.loadAvatar(filename);
+        String mimeType = "";
+        try {
+            mimeType = Files.probeContentType(file.getFile().toPath());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return ResponseEntity.ok()
+                .header(HttpHeaders.CONTENT_DISPOSITION, "filename=\"" + file.getFilename() + "\"")
+
+                .body(file);
     }
 
 
