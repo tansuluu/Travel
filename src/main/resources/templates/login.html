@@ -1,0 +1,241 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+	<title>Login V4</title>
+	<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="Travelix Project">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
+	<link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+	<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+	<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
+	<link rel="stylesheet" type="text/css" href="styles/about_styles.css">
+	<link rel="stylesheet" type="text/css" href="styles/about_responsive.css">
+	<link rel="icon" type="image/png" th:href="@{/Login/images/icons/favicon.ico}"/>
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" th:href="@{/Login/vendor/bootstrap/css/bootstrap.min.css}">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" th:href="@{/Login/fonts/font-awesome-4.7.0/css/font-awesome.min.css}">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" th:href="@{/Login/fonts/iconic/css/material-design-iconic-font.min.css}">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" th:href="@{/Login/vendor/animate/animate.css}">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" th:href="@{/Login/vendor/css-hamburgers/hamburgers.min.css}">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" th:href="@{/Login/vendor/animsition/css/animsition.min.css}">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" th:href="@{/Login/vendor/select2/select2.min.css}">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" th:href="@{/Login/vendor/daterangepicker/daterangepicker.css}">
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="vendor2/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="fonts2/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="fonts2/iconic/css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor2/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="vendor2/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor2/animsition/css/animsition.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor2/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor2/daterangepicker/daterangepicker.css">
+	<link rel="stylesheet" type="text/css" href="login2/util.css">
+	<link rel="stylesheet" type="text/css" href="login2/main.css">
+</head>
+<body>
+	<div class="super_container">
+	<header class="header">
+
+		<!-- Top Bar -->
+
+		<div class="top_bar">
+			<div class="container">
+				<div class="row">
+					<div class="col d-flex flex-row">
+						<div class="phone">+7 707 777 77 77</div>
+						<div class="social">
+							<ul class="social_list">
+								
+								<li class="social_list_item"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+								<li class="social_list_item"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+								<li class="social_list_item"><a href="#"><i class="fa fa-vk" aria-hidden="true"></i></a></li>
+								<li class="social_list_item"><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+								
+							</ul>
+						</div>
+						<div class="user_box ml-auto">
+							<div class="user_box_login user_box_link"><a href="Login.html">login</a></div>
+							<div class="user_box_register user_box_link"><a href="#">register</a></div>
+						</div>
+					</div>
+				</div>
+			</div>		
+		</div>
+
+		<!-- Main Navigation -->
+
+		<nav class="main_nav">
+			<div class="container">
+				<div class="row">
+					<div class="col main_nav_col d-flex flex-row align-items-center justify-content-start">
+						<div class="logo_container">
+							<div class="logo"><a href="#"><img src="" alt="">opentravel</a></div>
+						</div>
+						<div class="main_nav_container ml-auto">
+							<ul class="main_nav_list">
+								<li class="main_nav_item"><a href="register.html">home</a></li>
+								<li class="main_nav_item"><a href="#">about almaty</a></li>
+								<li class="main_nav_item"><a href="offers.html">offers</a></li>
+								<li class="main_nav_item"><a href="blog.html">blog</a></li>
+								<li class="main_nav_item"><a href="contact.html">contact</a></li>
+							</ul>
+						</div>
+						<div class="content_search ml-lg-0 ml-auto">
+							<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+							width="17px" height="17px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+								<g>
+									<g>
+										<g>
+											<path class="mag_glass" fill="#FFFFFF" d="M78.438,216.78c0,57.906,22.55,112.343,63.493,153.287c40.945,40.944,95.383,63.494,153.287,63.494
+											s112.344-22.55,153.287-63.494C489.451,329.123,512,274.686,512,216.78c0-57.904-22.549-112.342-63.494-153.286
+											C407.563,22.549,353.124,0,295.219,0c-57.904,0-112.342,22.549-153.287,63.494C100.988,104.438,78.439,158.876,78.438,216.78z
+											M119.804,216.78c0-96.725,78.69-175.416,175.415-175.416s175.418,78.691,175.418,175.416
+											c0,96.725-78.691,175.416-175.416,175.416C198.495,392.195,119.804,313.505,119.804,216.78z"/>
+										</g>
+									</g>
+									<g>
+										<g>
+											<path class="mag_glass" fill="#FFFFFF" d="M6.057,505.942c4.038,4.039,9.332,6.058,14.625,6.058s10.587-2.019,14.625-6.058L171.268,369.98
+											c8.076-8.076,8.076-21.172,0-29.248c-8.076-8.078-21.172-8.078-29.249,0L6.057,476.693
+											C-2.019,484.77-2.019,497.865,6.057,505.942z"/>
+										</g>
+									</g>
+								</g>
+							</svg>
+						</div>
+
+						<form id="search_form" class="search_form bez_1">
+							<input type="search" class="search_content_input bez_1">
+						</form>
+						
+						<div class="hamburger">
+							<i class="fa fa-bars trans_200"></i>
+						</div>
+					</div>
+				</div>
+			</div>	
+		</nav>
+
+	</header>
+	<div class="limiter">
+		<div th:if="${#request.getParameter('error') == 'true'}"
+			 style="color:red;margin:10px 0px;">
+			Login Failed!!!<br />
+			Reason :
+			<span th:if="${#session!= null and #session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION') != null}"
+				  th:utext="${#session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION').message}">
+                Static summary
+         </span>
+
+		</div>
+		<div class="container-login100" style="background-image: url('../static/Login/big_almaty_lake-widescreen_wallpapers.jpg');">
+			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+				<form class="login100-form validate-form" th:action="@{/j_spring_security_check}" method='POST'/>
+					<span class="login100-form-title p-b-49">
+						Login
+					</span>
+				<div class="wrap-input100 validate-input m-b-23" data-validate = "Username is reauired">
+					<span class="label-input100">Username</span>
+					<input class="input100" type="text" name="username" placeholder="Type your username">
+					<span class="focus-input100" data-symbol="&#xf206;"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate="Password is required">
+					<span class="label-input100">Password</span>
+					<input class="input100" type="password" name="password" placeholder="Type your password">
+					<span class="focus-input100" data-symbol="&#xf190;"></span>
+				</div>
+				<div class="text-right p-t-8 p-b-31">
+					<a th:href="@{/forgot}">
+						Forgot password?
+					</a>
+				</div>
+					<div class="container-login100-form-btn">
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+							<button class="login100-form-btn">
+								Login
+							</button>
+						</div>
+					</div>
+
+					<div class="txt1 text-center p-t-54 p-b-20">
+						<span>
+							Or Sign in Using
+						</span>
+					</div>
+
+					<div class="flex-c-m">
+						<a th:href="@{/auth/google}" class="login100-social-item bg1">
+							<i class="fa fa-facebook"></i>
+						</a>
+
+						<a th:href="@{/auth/google}" class="login100-social-item bg2">
+							<i class="fa fa-twitter"></i>
+						</a>
+
+						<a th:href="@{/auth/google}" class="login100-social-item bg3">
+							<i class="fa fa-google"></i>
+						</a>
+					</div>
+
+					<div class="flex-col-c p-t-155">
+						<span class="txt1 p-b-17">
+							Or Sign Up Using
+						</span>
+
+						<a th:href="@{/register}" class="txt2">
+							Sign Up
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+
+	<div id="dropDownSelect1"></div>
+	
+<!--===============================================================================================-->
+	<script src="Login/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="Login/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="Login/vendor/bootstrap/js/popper.js"></script>
+	<script src="Login/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="Login/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="Login/vendor/daterangepicker/moment.min.js"></script>
+	<script src="Login/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="Login/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="Login/js/main.js"></script>
+	<script src="Login/js/jquery-3.2.1.min.js"></script>
+<script src="Login/styles/bootstrap4/popper.js"></script>
+<script src="Login/styles/bootstrap4/bootstrap.min.js"></script>
+<script src="Login/plugins/greensock/TweenMax.min.js"></script>
+<script src="Login/plugins/greensock/TimelineMax.min.js"></script>
+<script src="Login/plugins/scrollmagic/ScrollMagic.min.js"></script>
+<script src="Login/plugins/greensock/animation.gsap.min.js"></script>
+<script src="Login/plugins/greensock/ScrollToPlugin.min.js"></script>
+<script src="Login/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+<script src="Login/plugins/easing/easing.js"></script>
+<script src="Login/plugins/parallax-js-master/parallax.min.js"></script>
+<script src="Login/js/about_custom.js"></script>
+
+</body>
+</html>
