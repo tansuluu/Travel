@@ -3,7 +3,11 @@ package com.example.try4.controller;
 
 
 import com.example.try4.dao.AppUserDAO;
+import com.example.try4.dao.CommentDAO;
+import com.example.try4.dao.LikeDAO;
 import com.example.try4.dao.PlaceDAO;
+import com.example.try4.entity.Application;
+import com.example.try4.entity.Comment;
 import com.example.try4.entity.Place;
 import com.example.try4.service.StorageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,11 +23,19 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
 import java.security.Principal;
+import java.util.List;
 
 @Controller
 @Transactional
 
 public class PlaceController {
+
+    @Autowired
+    private LikeDAO likeDAO;
+
+    @Autowired
+    private CommentDAO commentDAO;
+
     @Autowired
     StorageService storageService;
 
@@ -64,5 +76,29 @@ public class PlaceController {
         }
 
         return "redirect:/userPage?username="+principal.getName();
+    }
+
+    @RequestMapping("/placeInfo")
+    public String showApplications(Model model, @RequestParam("id")long id, Principal principal){
+        Place ap=placeDAO.updateView(id,1);
+        List<Comment> list=commentDAO.findComment(id);
+        List<Place> popular=placeDAO.findPopular();
+        model.addAttribute("comments",list);
+        model.addAttribute("app",ap);
+        model.addAttribute("popular",popular);
+        Comment comment=new Comment();
+        model.addAttribute("comment",comment);
+        try {
+            if (principal.getName() != null) {
+                if (likeDAO.hasPut(principal.getName(),id)) {
+                    model.addAttribute("trueFalse", "yes");
+                    System.out.println(likeDAO.hasPut(principal.getName(),id));
+                }
+                else model.addAttribute("trueFalse", "no" );
+            }
+        }catch (Exception e){
+
+        }
+        return "places";
     }
 }

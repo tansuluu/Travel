@@ -1,71 +1,82 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
-<title>Contact</title>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="description" content="Travelix Project">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
-<link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" type="text/css" href="styles/main_styles.css">
+	<title>Profile</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8">
+	<!-- Font -->
+	<title>Registration Form</title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
+	<link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+	<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+	<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
+	<link rel="stylesheet" type="text/css" href="styles/main_styles.css">
+	<link rel="stylesheet" type="text/css" href="styles/responsive.css">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}" />
+	<link rel="stylesheet" type="text/css" th:href="@{/css/ionicons.css}" />
+	<link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
+	<link rel="stylesheet" type="text/html" th:href="@{/css/responsive.css}" />
 </head>
+<body class="body">
 
-<body>
+<header class="header">
 
-<div class="super_container">
-	
-	<!-- Header -->
+	<!-- Top Bar -->
 
-	<header class="header">
+	<div class="top_bar">
+		<div class="container">
+			<div class="row">
+				<div class="col d-flex flex-row">
+					<div class="social">
+						<ul class="social_list">
 
-		<!-- Top Bar -->
+							<li class="social_list_item"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+							<li class="social_list_item"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+							<li class="social_list_item"><a href="#"><i class="fa fa-vk" aria-hidden="true"></i></a></li>
+							<li class="social_list_item"><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
 
-		<div class="top_bar">
-			<div class="container">
-				<div class="row">
-					<div class="col d-flex flex-row">
-						<div class="phone">7 707 777 77 77</div>
-						<div class="social">
-							<ul class="social_list">
-								
-								<li class="social_list_item"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-								<li class="social_list_item"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-								<li class="social_list_item"><a href="#"><i class="fa fa-vk" aria-hidden="true"></i></a></li>
-								<li class="social_list_item"><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-								
-							</ul>
-						</div>
-						<div class="user_box ml-auto">
-							<div class="user_box_login user_box_link"><a href="profile/index.html">login</a></div>
-							<div class="user_box_register user_box_link"><a href="login/index.html">register</a></div>
-						</div>
+						</ul>
+					</div>
+					<div class="user_box ml-auto">
+						<div class="user_box_register user_box_link"><a th:if="${#request.userPrincipal != null}" th:href="@{/logout}">Logout</a></div>
+						<div class="user_box_register user_box_link"><a th:if="${#request.userPrincipal != null}" th:href="@{/userPage(username=${#request.userPrincipal.name})}"  th:text="${#request.userPrincipal.name}"></a></div>
+
+						<div class="user_box_register user_box_link"><a th:if="${#request.userPrincipal == null}" th:href="@{/register}">Register</a></div>
+						<div class="user_box_register user_box_link"><a th:if="${#request.userPrincipal == null}" th:href="@{/login}">Login</a></div>
+
 					</div>
 				</div>
-			</div>		
+			</div>
 		</div>
+	</div>
 
-		<!-- Main Navigation -->
+	<!-- Main Navigation -->
 
-		<nav class="main_nav">
-			<div class="container">
-				<div class="row">
-					<div class="col main_nav_col d-flex flex-row align-items-center justify-content-start">
-						<div class="logo_container">
-							<div class="logo"><a href="#"><img src="" alt="">opentravel</a></div>
-						</div>
-						<div class="main_nav_container ml-auto">
-							<ul class="main_nav_list">
-								<li class="main_nav_item"><a href="index.html">home</a></li>
-								<li class="main_nav_item"><a href="about.html">about Almaty</a></li>
-								<li class="main_nav_item"><a href="offers.html">offers</a></li>
-								<li class="main_nav_item"><a href="blog.html">blog</a></li>
-								<li class="main_nav_item"><a href="#">contact</a></li>
-							</ul>
-						</div>
-						<div class="content_search ml-lg-0 ml-auto">
-							<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	<nav class="main_nav">
+		<div class="container">
+			<div class="row">
+				<div class="col main_nav_col d-flex flex-row align-items-center justify-content-start">
+					<div class="logo_container">
+						<div class="logo"><a href="#"><img src="" alt="">opentravel</a></div>
+					</div>
+					<div class="main_nav_container ml-auto">
+						<ul class="main_nav_list">
+							<li class="main_nav_item"><a href="#">home</a></li>
+							<li class="main_nav_item"><a href="about.html">about almaty</a></li>
+							<li class="main_nav_item"><a href="offers.html">offers</a></li>
+							<li class="main_nav_item"><a href="blog.html">blog</a></li>
+							<li class="main_nav_item"><a href="contact.html">contact</a></li>
+						</ul>
+					</div>
+					<div class="content_search ml-lg-0 ml-auto">
+						<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 							width="17px" height="17px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
 								<g>
 									<g>
@@ -86,199 +97,357 @@
 									</g>
 								</g>
 							</svg>
-						</div>
-
-						<form id="search_form" class="search_form bez_1">
-							<input type="search" class="search_content_input bez_1">
-						</form>
-						
-						<div class="hamburger">
-							<i class="fa fa-bars trans_200"></i>
-						</div>
 					</div>
-				</div>
-			</div>	
-		</nav>
 
-	</header>
+					<form id="search_form" class="search_form bez_1">
+						<input type="search" class="search_content_input bez_1">
+					</form>
 
-	<div class="menu trans_500">
-		<div class="menu_content d-flex flex-column align-items-center justify-content-center text-center">
-			<div class="menu_close_container"><div class="menu_close"></div></div>
-			<div class="logo menu_logo"><a href="#"><img src="images/logo.png" alt=""></a></div>
-			<ul>
-				<li class="menu_item"><a href="index.html">home</a></li>
-				<li class="menu_item"><a href="about.html">about us</a></li>
-				<li class="menu_item"><a href="offers.html">offers</a></li>
-				<li class="menu_item"><a href="blog.html">news</a></li>
-				<li class="menu_item"><a href="#">contact</a></li>
-			</ul>
-		</div>
-	</div>
-
-
-
-	<!-- Post Blog -->
-	<div class="limiter">
-		<div class="container-login100" style="background-image: url('images/big_almaty_lake-widescreen_wallpapers.jpg');">
-			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
-				<div>
-					
-				</div>
-			</div>
-		</div>
-	</div>
-	
-
-	<!-- Footer -->
-
-	<footer class="footer">
-		<div class="container">
-			<div class="row">
-
-				<!-- Footer Column -->
-				<div class="col-lg-3 footer_column">
-					<div class="footer_col">
-						<div class="footer_content footer_about">
-							<div class="logo_container footer_logo">
-								<div class="logo"><a href="#"><img src="" alt="">opentravel</a></div>
-							</div>
-							<p class="footer_about_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis vu lputate eros, iaculis consequat nisl. Nunc et suscipit urna. Integer eleme ntum orci eu vehicula pretium.</p>
-							<ul class="footer_social_list">
-								
-								<li class="footer_social_item"><a href="#"><i class="fa fa-facebook-f"></i></a></li>
-								<li class="footer_social_item"><a href="#"><i class="fa fa-twitter"></i></a></li>
-								<li class="footer_social_item"><a href="#"><i class="fa fa-vk"></i></a></li>
-								<li class="footer_social_item"><a href="#"><i class="fa fa-instagram"></i></a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-
-				<!-- Footer Column -->
-				<div class="col-lg-3 footer_column">
-					<div class="footer_col">
-						<div class="footer_title">blog posts</div>
-						<div class="footer_content footer_blog">
-							
-							<!-- Footer blog item -->
-							<div class="footer_blog_item clearfix">
-								<div class="footer_blog_image"><img src="images/footer_blog_1.jpg" alt="https://unsplash.com/@avidenov"></div>
-								<div class="footer_blog_content">
-									<div class="footer_blog_title"><a href="blog.html">Travel with us this year</a></div>
-									<div class="footer_blog_date">Nov 29, 2017</div>
-								</div>
-							</div>
-							
-							<!-- Footer blog item -->
-							<div class="footer_blog_item clearfix">
-								<div class="footer_blog_image"><img src="images/footer_blog_2.jpg" alt="https://unsplash.com/@deannaritchie"></div>
-								<div class="footer_blog_content">
-									<div class="footer_blog_title"><a href="blog.html">New destinations for you</a></div>
-									<div class="footer_blog_date">Nov 29, 2017</div>
-								</div>
-							</div>
-
-							<!-- Footer blog item -->
-							<div class="footer_blog_item clearfix">
-								<div class="footer_blog_image"><img src="images/footer_blog_3.jpg" alt="https://unsplash.com/@bergeryap87"></div>
-								<div class="footer_blog_content">
-									<div class="footer_blog_title"><a href="blog.html">Travel with us this year</a></div>
-									<div class="footer_blog_date">Nov 29, 2017</div>
-								</div>
-							</div>
-
-						</div>
-					</div>
-				</div>
-
-				<!-- Footer Column -->
-				<div class="col-lg-3 footer_column">
-					<div class="footer_col">
-						<div class="footer_title">tags</div>
-						<div class="footer_content footer_tags">
-							<ul class="tags_list clearfix">
-								<li class="tag_item"><a href="#">design</a></li>
-								<li class="tag_item"><a href="#">fashion</a></li>
-								<li class="tag_item"><a href="#">music</a></li>
-								<li class="tag_item"><a href="#">video</a></li>
-								<li class="tag_item"><a href="#">party</a></li>
-								<li class="tag_item"><a href="#">photography</a></li>
-								<li class="tag_item"><a href="#">adventure</a></li>
-								<li class="tag_item"><a href="#">travel</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-
-				<!-- Footer Column -->
-				<div class="col-lg-3 footer_column">
-					<div class="footer_col">
-						<div class="footer_title">contact info</div>
-						<div class="footer_content footer_contact">
-							<ul class="contact_info_list">
-								<li class="contact_info_item d-flex flex-row">
-									<div><div class="contact_info_icon"><img src="images/placeholder.svg" alt=""></div></div>
-									<div class="contact_info_text">Microdistrict 7, 56</div>
-								</li>
-								<li class="contact_info_item d-flex flex-row">
-									<div><div class="contact_info_i">+7 707 777 77 77</div>
-								</li>
-								<li class="contact_info_item d-flex flex-row">
-									<div><div class="contact_info_icon"><img src="images/message.svg" alt=""></div></div>
-									<div class="contact_info_text"><a href="mailto:contactme@gmail.com?Subject=Hello" target="_top">opentravel@gmail.com</a></div>
-								</li>
-								<li class="contact_info_item d-flex flex-row">
-									<div><div class="contact_info_icon"><img src="images/planet-earth.svg" alt=""></div></div>
-									<div class="contact_info_text"><a href="https://colorlib.com">www.opentravel.com</a></div>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-
-			</div>
-		</div>
-	</footer>
-
-	<!-- Copyright -->
-
-	<div class="copyright">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-3 order-lg-1 order-2  ">
-					<div class="copyright_content d-flex flex-row align-items-center">
-						<div><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
-					</div>
-				</div>
-				<div class="col-lg-9 order-lg-2 order-1">
-					<div class="footer_nav_container d-flex flex-row align-items-center justify-content-lg-end">
-						<div class="footer_nav">
-							<ul class="footer_nav_list">
-								<li class="footer_nav_item"><a href="index.html">home</a></li>
-								<li class="footer_nav_item"><a href="about.html">about us</a></li>
-								<li class="footer_nav_item"><a href="offers.html">offers</a></li>
-								<li class="footer_nav_item"><a href="blog.html">news</a></li>
-								<li class="footer_nav_item"><a href="#">contact</a></li>
-							</ul>
-						</div>
+					<div class="hamburger">
+						<i class="fa fa-bars trans_200"></i>
 					</div>
 				</div>
 			</div>
 		</div>
+	</nav>
+
+</header>
+
+<div class="menu trans_500">
+	<div class="menu_content d-flex flex-column align-items-center justify-content-center text-center">
+		<div class="menu_close_container"><div class="menu_close"></div></div>
+		<div class="logo menu_logo"><a href="#"><img src="images/logo.png" alt=""></a></div>
+		<ul>
+			<li class="menu_item"><a href="#">home</a></li>
+			<li class="menu_item"><a href="about.html">about us</a></li>
+			<li class="menu_item"><a href="offers.html">offers</a></li>
+			<li class="menu_item"><a href="blog.html">news</a></li>
+			<li class="menu_item"><a href="contact.html">contact</a></li>
+		</ul>
 	</div>
+</div>
+
+<div class="slider">
+
+</div><!-- slider -->
+
+<section class="post-area">
+	<div class="container" th:object="${app}">
+
+		<div class="row">
+			<div class="col-lg-1 col-md-0"></div>
+			<div class="col-lg-10 col-md-12">
+
+				<div class="main-post">
+
+					<div class="post-top-area">
+
+						<h5 class="pre-title"></h5>
+
+						<h3 class="title" ><a href="#"><b th:text="${app.title}"></b></a></h3>
+
+						<div class="post-info">
+
+							<div class="left-area">
+								<a class="avatar" href="#"><img  th:src="@{${app.image}}" alt="Profile Image"></a>
+							</div>
+
+							<div class="middle-area">
+								<a class="name" th:href="@{/userPage(username=${app.usarname})}" th:text="${app.usarname}" ><b></b></a>
+								<h6 class="date" th:text="${'on '+ app.date}">on Sep 29, 2017 at 9:48 am</h6>
+							</div>
+
+						</div><!-- post-info -->
+
+						<p class="para" th:text="${app.text}"></p>
+
+					</div><!-- post-top-area -->
+					<div class="post-image"><img th:if="${app.getPhoto1()}!=null" th:src="@{${'/image/'+app.photo1}}"alt="Blog Image"></div>
+					<div class="post-image"><img th:if="${app.getPhoto2()}!=null" th:src="@{${'/image/'+app.photo2}}"alt="Blog Image"></div>
+					<div class="post-image"><img th:if="${app.getPhoto3()}!=null" th:src="@{${'/image/'+app.photo3}}"alt="Blog Image"></div>
+					<div class="post-bottom-area">
+						<div sec:authorize="hasRole('ROLE_USER')" th:if="${#request.userPrincipal!=null}">
+							<a  th:if="${app.usarname==#request.userPrincipal.name}"  class="load-more-btn" th:href="@{/deleteApp(id=${app.apId})}"><b>DELETE THE APPLICACTION</b></a>
+						</div>
+						<div class="right-area" sec:authorize="hasRole('ROLE_ADMIN')">
+							<a class="load-more-btn" th:href="@{/deleteApp(id=${app.id})}"><b>DELETE THE APPLICACTION</b></a>
+						</div>
+
+						<div class="post-icons-area">
+							<ul class="post-icons" >
+								<li  th:if="${#request.userPrincipal!=null}"><a  th:if="${trueFalse=='yes'}"  style="color: red" href="" th:text="${' '+app.likes}" class="ion-heart" th:href="@{/deleteLike(id=${app.apId},username=${#request.userPrincipal.name})}"></a></li>
+								<li th:if="${#request.userPrincipal!=null}" ><a   th:if="${trueFalse=='no'}"  th:href="@{/addLike(id=${app.apId},username=${#request.userPrincipal.name})}" th:text="${' '+app.likes}" class="ion-heart"></a></li>
+								<li><a th:if="${#request.userPrincipal==null}"  th:text="${' '+app.likes}" class="ion-heart" style="color: red"></a></li>
+								<li><a href="#" class="ion-chatbubble"  th:text="${' '+app.comNumber}"></a></li>
+								<li><a href="#" class="ion-eye" th:text="${' '+app.view}" ></a></li>
+							</ul>
+
+							<ul class="icons">
+								<li>SHARE : </li>
+								<li><a href="#"><i class="ion-social-facebook"></i></a></li>
+								<li><a href="#"><i class="ion-social-twitter"></i></a></li>
+								<li><a href="#"><i class="ion-social-pinterest"></i></a></li>
+							</ul>
+						</div>
+
+					</div><!-- post-bottom-area -->
+
+				</div><!-- main-post -->
+			</div><!-- col-lg-8 col-md-12 -->
+		</div><!-- row -->
+	</div><!-- container -->
+</section><!-- post-area -->
+
+
+<section class="recomended-area section">
+	<div class="container" >
+		<div class="row">
+
+			<div class="col-lg-4 col-md-6" th:each="app1:${popular}">
+				<div class="card h-100">
+					<div class="single-post post-style-1">
+
+						<div class="blog-image"><img th:if="${app.getPhoto1()}!=null" th:src="@{${'/image/'+app1.photo1}}" alt="Blog Image"></div>
+
+						<a class="avatar" href="#"><img  th:src="@{${app1.image}}"  alt="Profile Image"></a>
+
+						<div class="blog-info">
+
+							<h4 class="title"><a th:href="@{/appInfo(id=${app1.id})}"><b th:text="${app1.title}"></b></a></h4>
+
+							<ul class="post-footer">
+								<li><a th:href="@{/placeInfo(id=${app1.id})}"  th:text="${' '+app1.likes}" class="ion-heart"></a></li>
+								<li><a th:href="@{/placeInfo(id=${app1.id})}" th:text="${' '+app1.comNumber}" class="ion-chatbubble"></a></li>
+								<li><a th:href="@{/placeInfo(id=${app1.id})}" th:text="${' '+app1.view}" class="ion-eye"></a></li>
+							</ul>
+
+						</div><!-- blog-info -->
+					</div><!-- single-post -->
+				</div><!-- card -->
+			</div><!-- col-md-6 col-sm-12 -->
+		</div><!-- row -->
+
+	</div><!-- container -->
+</section>
+
+<section class="comment-section center-text">
+	<div class="container">
+		<h4><b th:if="${#request.userPrincipal != null}">POST COMMENT</b></h4>
+		<h4><b th:if="${#request.userPrincipal == null}">To add comment, <a th:href="@{/login}">sign in</a></b></h4>
+		<div class="row">
+
+			<div class="col-lg-2 col-md-0"></div>
+
+			<div class="col-lg-8 col-md-12"   >
+				<div class="comment-form" th:if="${#request.userPrincipal != null}">
+					<form th:action="@{/newComment(appId=${app.id})}" method="post" th:object="${comment}">
+						<div class="row">
+							<a class="name" href="#"><b th:text="${'Add comment as '+#request.userPrincipal.name}"></b></a>
+							<div class="col-sm-12">
+								<label th:if="${#fields.hasErrors('comentText')}" th:errors="*{comentText}" class="validation-message">
+								</label>
+								<textarea th:field="*{comentText}" id="comments" rows="2" class="text-area-messge form-control"
+										  placeholder="Enter your comment"></textarea >
+
+							</div><!-- col-sm-12 -->
+							<div class="col-sm-12">
+								<button class="submit-btn" type="submit" id="form-submit"><b>POST COMMENT</b></button>
+							</div><!-- col-sm-12 -->
+
+						</div><!-- row -->
+					</form>
+				</div><!-- comment-form -->
+
+				<h4><b th:text="${'COMENTS('+app.comNumber+')'}"></b></h4>
+
+				<div class="commnets-area text-left" >
+
+					<div class="comment" th:each="commen: ${comments}">
+
+						<div class="post-info">
+
+							<div class="left-area">
+								<a class="avatar" href="#"><img  th:src="@{${commen.image}}" alt="Profile Image"></a>
+							</div>
+
+							<div class="middle-area">
+								<a class="name" th:href="@{/userPage(username=${commen.username})}"><b th:text="${commen.username}"></b></a>
+								<h6 class="date" th:text="${'on '+commen.dateCom}"></h6>
+							</div>
+							<div class="right-area" sec:authorize="hasRole('ROLE_ADMIN')">
+								<a th:href="@{/deleteComment(id=${commen.id},apId=${app.id})}"><img  src="images/trash.png" style="width: 30px" alt="Profile Image"></a>
+
+							</div>
+
+						</div><!-- post-info -->
+
+						<p th:text="${commen.comentText}"></p>
+
+					</div>
+				</div>
+
+			</div><!-- col-lg-8 col-md-12 -->
+
+		</div><!-- row -->
+
+	</div><!-- container -->
+</section>
+
+<footer class="footer">
+	<div class="container">
+		<div class="row">
+
+			<!-- Footer Column -->
+			<div class="col-lg-3 footer_column">
+				<div class="footer_col">
+					<div class="footer_content footer_about">
+						<div class="logo_container footer_logo">
+							<div class="logo"><a href="#"><img src="" alt="">opentravel</a></div>
+						</div>
+						<p class="footer_about_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis vu lputate eros, iaculis consequat nisl. Nunc et suscipit urna. Integer eleme ntum orci eu vehicula pretium.</p>
+						<ul class="footer_social_list">
+
+							<li class="footer_social_item"><a href="#"><i class="fa fa-facebook-f"></i></a></li>
+							<li class="footer_social_item"><a href="#"><i class="fa fa-twitter"></i></a></li>
+							<li class="footer_social_item"><a href="#"><i class="fa fa-vk"></i></a></li>
+							<li class="footer_social_item"><a href="#"><i class="fa fa-instagram"></i></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<!-- Footer Column -->
+			<div class="col-lg-3 footer_column">
+				<div class="footer_col">
+					<div class="footer_title">blog posts</div>
+					<div class="footer_content footer_blog">
+
+						<!-- Footer blog item -->
+						<div class="footer_blog_item clearfix">
+							<div class="footer_blog_image"><img src="images/footer_blog_1.jpg" alt="https://unsplash.com/@avidenov"></div>
+							<div class="footer_blog_content">
+								<div class="footer_blog_title"><a href="blog.html">Travel with us this year</a></div>
+								<div class="footer_blog_date">Nov 29, 2017</div>
+							</div>
+						</div>
+
+						<!-- Footer blog item -->
+						<div class="footer_blog_item clearfix">
+							<div class="footer_blog_image"><img src="images/footer_blog_2.jpg" alt="https://unsplash.com/@deannaritchie"></div>
+							<div class="footer_blog_content">
+								<div class="footer_blog_title"><a href="blog.html">New destinations for you</a></div>
+								<div class="footer_blog_date">Nov 29, 2017</div>
+							</div>
+						</div>
+
+						<!-- Footer blog item -->
+						<div class="footer_blog_item clearfix">
+							<div class="footer_blog_image"><img src="images/footer_blog_3.jpg" alt="https://unsplash.com/@bergeryap87"></div>
+							<div class="footer_blog_content">
+								<div class="footer_blog_title"><a href="blog.html">Travel with us this year</a></div>
+								<div class="footer_blog_date">Nov 29, 2017</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+			<!-- Footer Column -->
+			<div class="col-lg-3 footer_column">
+				<div class="footer_col">
+					<div class="footer_title">tags</div>
+					<div class="footer_content footer_tags">
+						<ul class="tags_list clearfix">
+							<li class="tag_item"><a href="#">design</a></li>
+							<li class="tag_item"><a href="#">fashion</a></li>
+							<li class="tag_item"><a href="#">music</a></li>
+							<li class="tag_item"><a href="#">video</a></li>
+							<li class="tag_item"><a href="#">party</a></li>
+							<li class="tag_item"><a href="#">photography</a></li>
+							<li class="tag_item"><a href="#">adventure</a></li>
+							<li class="tag_item"><a href="#">travel</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<!-- Footer Column -->
+			<div class="col-lg-3 footer_column">
+				<div class="footer_col">
+					<div class="footer_title">contact info</div>
+					<div class="footer_content footer_contact">
+						<ul class="contact_info_list">
+							<li class="contact_info_item d-flex flex-row">
+								<div><div class="contact_info_icon"><img src="images/placeholder.svg" alt=""></div></div>
+								<div class="contact_info_text">7 Microdistrict, 11</div>
+							</li>
+							<li class="contact_info_item d-flex flex-row">
+								<div><div class="contact_info_icon"><img src="images/phone-call.svg" alt=""></div></div>
+								<div class="contact_info_text">+7 707 777 77 77</div>
+							</li>
+							<li class="contact_info_item d-flex flex-row">
+								<div><div class="contact_info_icon"><img src="images/message.svg" alt=""></div></div>
+								<div class="contact_info_text"><a href="mailto:contactme@gmail.com?Subject=Hello" target="_top">opentravel@gmail.com</a></div>
+							</li>
+							<li class="contact_info_item d-flex flex-row">
+								<div><div class="contact_info_icon"><img src="images/planet-earth.svg" alt=""></div></div>
+								<div class="contact_info_text"><a href="https://colorlib.com">www.opentravel.com</a></div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</footer>
+
+<!-- Copyright -->
+
+<div class="copyright">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3 order-lg-1 order-2  ">
+				<div class="copyright_content d-flex flex-row align-items-center">
+					<div><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
+				</div>
+			</div>
+			<div class="col-lg-9 order-lg-2 order-1">
+				<div class="footer_nav_container d-flex flex-row align-items-center justify-content-lg-end">
+					<div class="footer_nav">
+						<ul class="footer_nav_list">
+							<li class="footer_nav_item"><a href="#">home</a></li>
+							<li class="footer_nav_item"><a href="about.html">about us</a></li>
+							<li class="footer_nav_item"><a href="offers.html">offers</a></li>
+							<li class="footer_nav_item"><a href="blog.html">news</a></li>
+							<li class="footer_nav_item"><a href="contact.html">contact</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
 </div>
 
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="styles/bootstrap4/popper.js"></script>
 <script src="styles/bootstrap4/bootstrap.min.js"></script>
-<script src="plugins/parallax-js-master/parallax.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCIwF204lFZg1y4kPSIhKaHEXMLYxxuMhA"></script>
-<script src="js/contact_custom.js"></script>
+<script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+<script src="plugins/easing/easing.js"></script>
+<script src="js/custom.js"></script>
+
+<script src="common-js/jquery-3.1.1.min.js"></script>
+
+<script src="common-js/tether.min.js"></script>
+
+<script src="common-js/bootstrap.js"></script>
+
+<script src="common-js/scripts.js"></script>
 
 </body>
-
 </html>

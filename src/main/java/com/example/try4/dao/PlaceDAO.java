@@ -25,22 +25,22 @@ public class PlaceDAO {
         this.entityManager.flush();
         return app;
     }
-    public List<Application> getApp() {
+    public List<Place> getPlace() {
         try {
-            String sql = "Select e from " + Application.class.getName() + " e ";
-            Query query = entityManager.createQuery(sql, Application.class);
+            String sql = "Select e from " + Place.class.getName() + " e ";
+            Query query = entityManager.createQuery(sql, Place.class);
             return query.getResultList();
         } catch (NoResultException e) {
             return null;
         }
     }
-    public Application findAppId(long id) {
+    public Place findPlaceId(long id) {
         try {
-            String sql = "Select e from " + Application.class.getName() + " e " //
+            String sql = "Select e from " + Place.class.getName() + " e " //
                     + " Where e.id = :id ";
-            Query query = entityManager.createQuery(sql, Application.class);
+            Query query = entityManager.createQuery(sql, Place.class);
             query.setParameter("id", id);
-            Application application=(Application) query.getSingleResult();
+            Place application=(Place) query.getSingleResult();
             return  application;
         } catch (NoResultException e) {
             return null;
@@ -73,22 +73,22 @@ public class PlaceDAO {
             return null;
         }
     }
-    public List<Application> findPopular() {
+    public List<Place> findPopular() {
         try {
-            String sql = "Select e from " + Application.class.getName() + " e " //
+            String sql = "Select e from " + Place.class.getName() + " e " //
                     + "order by e.view desc ";
-            Query query = entityManager.createQuery(sql, Application.class);
-            return (List<Application>) query.setFirstResult(0).setMaxResults(3).getResultList();
+            Query query = entityManager.createQuery(sql, Place.class);
+            return (List<Place>) query.setFirstResult(0).setMaxResults(3).getResultList();
         } catch (NoResultException e) {
             return null;
         }
     }
-    public List<Application> search(String word) {
+    public List<Place> search(String word) {
         try {
-            String sql = "Select e from " + Application.class.getName() + " e " //
+            String sql = "Select e from " + Place.class.getName() + " e " //
                     + "where concat(e.title,e.category,e.status) like '%"+word+"%'";
-            Query query = entityManager.createQuery(sql, Application.class);
-            return (List<Application>) query.setFirstResult(0).setMaxResults(3).getResultList();
+            Query query = entityManager.createQuery(sql, Place.class);
+            return (List<Place>) query.setFirstResult(0).setMaxResults(3).getResultList();
         } catch (NoResultException e) {
             return null;
         }
@@ -106,9 +106,14 @@ public class PlaceDAO {
         }
     }
     public void deleteApp(long id){
-        this.entityManager.remove(findAppId(id));
+        this.entityManager.remove(findPlaceId(id));
         this.entityManager.flush();
         this.entityManager.clear();
+    }
+    public Place updateView(long id,int n){
+        Place place=findPlaceId(id);
+        place.setView(place.getView()+n);
+        return addPlace(place);
     }
 
 

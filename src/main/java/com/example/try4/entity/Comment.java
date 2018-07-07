@@ -15,8 +15,8 @@ public class Comment {
     private long id;
     @Column(name = "username")
     private String username;
-    @Column(name = "id_app")
-    private long id_app;
+    @Column(name = "id_place")
+    private long id_place;
     @Column(name = "text")
     @NotEmpty(message = "*Please write comment")
     private String comentText;
@@ -26,9 +26,9 @@ public class Comment {
     @Column(name = "image", length = 136)
     private String image;
 
-    public Comment(String username, long id_app, String comentText) {
+    public Comment(String username, long id_place, String comentText) {
         this.username = username;
-        this.id_app = id_app;
+        this.id_place = id_place;
         this.comentText = comentText;
     }
 
@@ -41,7 +41,7 @@ public class Comment {
     }
 
     public void setId_app(long id_app) {
-        this.id_app = id_app;
+        this.id_place = id_place;
     }
 
     public Date getDateCom() {
@@ -72,11 +72,11 @@ public class Comment {
     }
 
     public long getId_app() {
-        return id_app;
+        return id_place;
     }
 
     public void setId_app(int id_app) {
-        this.id_app = id_app;
+        this.id_place = id_app;
     }
 
     public String getComentText() {
