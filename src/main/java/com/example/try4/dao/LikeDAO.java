@@ -69,10 +69,6 @@ public class LikeDAO {
             query.setParameter("id", app_id);
             return (Likes) query.getSingleResult();
         } catch (NoResultException e) {
-            return null;
-
-        }
+            return null; }
     }
-
-
 }

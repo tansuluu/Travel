@@ -81,6 +81,27 @@ public class MainController {
 
         return "index";
     }
+    @RequestMapping(value = { "/about" }, method = RequestMethod.GET)
+    public String welcomeP(Model model) {
+
+        return "about";
+    }
+    @RequestMapping(value = { "/offers" }, method = RequestMethod.GET)
+    public String welcome(Model model) {
+
+        return "offers";
+    }
+    @RequestMapping(value = { "/blog" }, method = RequestMethod.GET)
+    public String welcoeP(Model model) {
+
+        return "blog";
+    }
+    @RequestMapping(value = { "/contact" }, method = RequestMethod.GET)
+    public String welcomP(Model model) {
+
+        return "contact";
+    }
+
 
 
     @RequestMapping(value = { "/login" }, method = RequestMethod.GET)

@@ -7,12 +7,16 @@ import javax.persistence.*;
 public class Likes {
     @Id
     @GeneratedValue
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private long id;
     @Column(name = "username",length = 128)
     private String username;
     @Column(name = "app_id")
     private long app_id;
+
+    public Likes() {
+    }
+
     public Likes(String username, long app_id) {
         this.username = username;
         this.app_id = app_id;

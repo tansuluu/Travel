@@ -85,7 +85,7 @@
 						</div>
 						<div class="main_nav_container ml-auto">
 							<ul class="main_nav_list">
-								<li class="main_nav_item"><a href="register.html">home</a></li>
+								<li class="main_nav_item"><a th:href="register.html">home</a></li>
 								<li class="main_nav_item"><a href="#">about almaty</a></li>
 								<li class="main_nav_item"><a href="offers.html">offers</a></li>
 								<li class="main_nav_item"><a href="blog.html">blog</a></li>
@@ -129,8 +129,8 @@
 		</nav>
 
 	</header>
-	<div class="limiter">
-		<div th:if="${#request.getParameter('error') == 'true'}"
+	<div class="limiter" >
+		<div th:if="${#request.getParameter('error') == 'true'} "
 			 style="color:red;margin:10px 0px;">
 			Login Failed!!!<br />
 			Reason :
@@ -140,7 +140,7 @@
          </span>
 
 		</div>
-		<div class="container-login100" style="background-image: url('../static/Login/big_almaty_lake-widescreen_wallpapers.jpg');">
+		<div class="container-login100" style="background-image: url('images/big_almaty_lake-widescreen_wallpapers.jpg');">
 			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
 				<form class="login100-form validate-form" th:action="@{/j_spring_security_check}" method='POST'/>
 					<span class="login100-form-title p-b-49">
