@@ -3,23 +3,25 @@
 	  xmlns:th="http://www.thymeleaf.org"
 	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
-<title>About Us</title>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="description" content="Travelix Project">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
-<link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
-<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
-<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
-<link rel="stylesheet" type="text/css" href="styles/about_styles.css">
-<link rel="stylesheet" type="text/css" href="styles/about_responsive.css">
+	<title>About us</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Travelix Project">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
+	<link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+	<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+	<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
+	<link rel="stylesheet" type="text/css" href="styles/main_styles.css">
+	<link rel="stylesheet" type="text/css" href="styles/responsive.css">
 </head>
 
 <body>
 
 <div class="super_container">
+
+	<!-- Header -->
 
 	<header class="header">
 
@@ -64,7 +66,7 @@
 						<div class="main_nav_container ml-auto">
 							<ul class="main_nav_list">
 								<li class="main_nav_item"><a th:href="@{/}">home</a></li>
-								<li class="main_nav_item"><a th:href="@{/about}">about almaty</a></li>
+								<li class="main_nav_item"><a th:href="@{/about}">about Almaty</a></li>
 								<li class="main_nav_item"><a th:href="@{/offers}">offers</a></li>
 								<li class="main_nav_item"><a th:href="@{/blog}">blog</a></li>
 								<li class="main_nav_item"><a th:href="@{/contact}">contact</a></li>
@@ -121,15 +123,7 @@
 			</ul>
 		</div>
 	</div>
-
-	<!-- Home -->
-
-	<div class="home">
-		<div class="home_background parallax-window" data-parallax="scroll" data-image-src="images/home_slide2.jpg"></div>
-		<div class="home_content">
-			<div class="home_title">about Kok-Zhailau</div>
-		</div>
-	</div>
+	<div style="height: 100px"></div>
 
 	<!-- Intro -->
 
@@ -137,13 +131,12 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-7">
-					<div class="intro_image"><img src="http://gorny-club.kz/wp-content/uploads/2016/10/kzh-panorama-1000x500.jpg" alt=""></div>
+					<div class="intro_image"><img src="https://info.homsters.kz/data/uploads/almaty-2.jpg" alt=""></div>
 				</div>
 				<div class="col-lg-5">
 					<div class="intro_content">
-
-						<p class="intro_text">The Kok-Zhailau plateau is a popular tourist attraction. The area is accessible for hiking, biking, skiing, and horse riding. It is the only reachable area within the Ile-Alatau National Park.
-							The area is major tourist attraction on account of its unspoilt nature. Ecotourism is also prevalent in the area. This also includes scientific ecotourism, cognitive ecotourism, blindwatching, botanical excursions, video and photo excursions, ethnic tourism, and other activities.
+						<div class="intro_title">The history of Almaty city</div>
+						<p class="intro_text">Almaty Ala Tau, northern spur of hills Tean Shan at height from 670 up to 1700 m above sea level, in valleys of the rivers Big and Small Almaty's is located in southern - east part of republic, at ridge Zaili.A climate of city - continental. The mid-annual long-term temperature +9 ° With, absolute maximal temperature +46 ° With, minimal-37 ° S.Ploshchad cities makes 330 км2, the population for January, 1, 2004 almost 1,2 million person. The city has been incorporated as military strengthening Zaili in 1854 when after connection of Kazakhstan to Russia there was a necessity of strengthening of imperial authority in Semirechie.
 						</p>
 
 						
@@ -152,6 +145,167 @@
 			</div>
 		</div>
 	</div>
+
+<!-- Intro -->
+
+	<div class="trending">
+		<div class="container">
+			<div class="row">
+				<div class="col text-center">
+					<h2 class="section_title">trending now</h2>
+				</div>
+			</div>
+			<div class="row trending_container">
+
+				<!-- Trending Item -->
+				<div class="col-lg-3 col-sm-6">
+					<div class="trending_item clearfix">
+						<div class="trending_image"><img src="images/trend_1.png" alt="https://unsplash.com/@fransaraco"></div>
+						<div class="trending_content">
+							<div class="trending_title"><a href="fi#">grand hotel</a></div>
+							<div class="trending_price">From $182</div>
+							<div class="trending_location">madrid, spain</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Trending Item -->
+				<div class="col-lg-3 col-sm-6">
+					<div class="trending_item clearfix">
+						<div class="trending_image"><img src="images/trend_2.png" alt="https://unsplash.com/@grovemade"></div>
+						<div class="trending_content">
+							<div class="trending_title"><a href="#">mars hotel</a></div>
+							<div class="trending_price">From $182</div>
+							<div class="trending_location">madrid, spain</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Trending Item -->
+				<div class="col-lg-3 col-sm-6">
+					<div class="trending_item clearfix">
+						<div class="trending_image"><img src="images/trend_3.png" alt="https://unsplash.com/@jbriscoe"></div>
+						<div class="trending_content">
+							<div class="trending_title"><a href="#">queen hotel</a></div>
+							<div class="trending_price">From $182</div>
+							<div class="trending_location">madrid, spain</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Trending Item -->
+				<div class="col-lg-3 col-sm-6">
+					<div class="trending_item clearfix">
+						<div class="trending_image"><img src="images/trend_4.png" alt="https://unsplash.com/@oowgnuj"></div>
+						<div class="trending_content">
+							<div class="trending_title"><a href="#">mars hotel</a></div>
+							<div class="trending_price">From $182</div>
+							<div class="trending_location">madrid, spain</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Trending Item -->
+				<div class="col-lg-3 col-sm-6">
+					<div class="trending_item clearfix">
+						<div class="trending_image"><img src="images/trend_5.png" alt="https://unsplash.com/@mindaugas"></div>
+						<div class="trending_content">
+							<div class="trending_title"><a href="#">grand hotel</a></div>
+							<div class="trending_price">From $182</div>
+							<div class="trending_location">madrid, spain</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Trending Item -->
+				<div class="col-lg-3 col-sm-6">
+					<div class="trending_item clearfix">
+						<div class="trending_image"><img src="images/trend_6.png" alt="https://unsplash.com/@itsnwa"></div>
+						<div class="trending_content">
+							<div class="trending_title"><a href="#">mars hotel</a></div>
+							<div class="trending_price">From $182</div>
+							<div class="trending_location">madrid, spain</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Trending Item -->
+				<div class="col-lg-3 col-sm-6">
+					<div class="trending_item clearfix">
+						<div class="trending_image"><img src="images/trend_7.png" alt="https://unsplash.com/@rktkn"></div>
+						<div class="trending_content">
+							<div class="trending_title"><a href="#">queen hotel</a></div>
+							<div class="trending_price">From $182</div>
+							<div class="trending_location">madrid, spain</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Trending Item -->
+				<div class="col-lg-3 col-sm-6">
+					<div class="trending_item clearfix">
+						<div class="trending_image"><img src="images/trend_8.png" alt="https://unsplash.com/@thoughtcatalog"></div>
+						<div class="trending_content">
+							<div class="trending_title"><a href="#">mars hotel</a></div>
+							<div class="trending_price">From $182</div>
+							<div class="trending_location">madrid, spain</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+		
+
+
+	<!-- Milestones -->
+
+	<div class="milestones">
+		<div class="container">
+			<div class="row">
+				
+				<!-- Milestone -->
+				<div class="col-lg-3 milestone_col">
+					<div class="milestone text-center">
+						<div class="milestone_icon"><img src="../../../../../opentravel/opentravel/images/milestone_1.png" alt=""></div>
+						<div class="milestone_counter" data-end-value="0">0</div>
+						<div class="milestone_text">Tourists</div>
+					</div>
+				</div>
+
+				<!-- Milestone -->
+				<div class="col-lg-3 milestone_col">
+					<div class="milestone text-center">
+						<div class="milestone_icon"><img src="../../../../../opentravel/opentravel/images/milestone_2.png" alt=""></div>
+						<div class="milestone_counter" data-end-value="0">0</div>
+						<div class="milestone_text">Entartainment Places</div>
+					</div>
+				</div>
+
+				<!-- Milestone -->
+				<div class="col-lg-3 milestone_col">
+					<div class="milestone text-center">
+						<div class="milestone_icon"><img src="../../../../../opentravel/opentravel/images/milestone_3.png" alt=""></div>
+						<div class="milestone_counter" data-end-value="0">0</div>
+						<div class="milestone_text">Partners</div>
+					</div>
+				</div>
+
+				<!-- Milestone -->
+				<div class="col-lg-3 milestone_col">
+					<div class="milestone text-center">
+						<div class="milestone_icon"><img src="../../../../../opentravel/opentravel/images/milestone_4.png" alt=""></div>
+						<div class="milestone_counter" data-end-value="0">0</div>
+						<div class="milestone_text">Tour Guides</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<!-- Footer -->
 
 	<footer class="footer">
 		<div class="container">
@@ -184,27 +338,27 @@
 							
 							<!-- Footer blog item -->
 							<div class="footer_blog_item clearfix">
-								<div class="footer_blog_image"><img src="images/footer_blog_1.jpg" alt="https://unsplash.com/@avidenov"></div>
+								<div class="footer_blog_image"><img src="../../../../../opentravel/opentravel/images/footer_blog_1.jpg" alt="https://unsplash.com/@avidenov"></div>
 								<div class="footer_blog_content">
-									<div class="footer_blog_title"><a href="blog.html">Travel with us this year</a></div>
+									<div class="footer_blog_title"><a href="../../../../../opentravel/opentravel/blog.html">Travel with us this year</a></div>
 									<div class="footer_blog_date">Nov 29, 2017</div>
 								</div>
 							</div>
 							
 							<!-- Footer blog item -->
 							<div class="footer_blog_item clearfix">
-								<div class="footer_blog_image"><img src="images/footer_blog_2.jpg" alt="https://unsplash.com/@deannaritchie"></div>
+								<div class="footer_blog_image"><img src="../../../../../opentravel/opentravel/images/footer_blog_2.jpg" alt="https://unsplash.com/@deannaritchie"></div>
 								<div class="footer_blog_content">
-									<div class="footer_blog_title"><a href="blog.html">New destinations for you</a></div>
+									<div class="footer_blog_title"><a href="../../../../../opentravel/opentravel/blog.html">New destinations for you</a></div>
 									<div class="footer_blog_date">Nov 29, 2017</div>
 								</div>
 							</div>
 
 							<!-- Footer blog item -->
 							<div class="footer_blog_item clearfix">
-								<div class="footer_blog_image"><img src="images/footer_blog_3.jpg" alt="https://unsplash.com/@bergeryap87"></div>
+								<div class="footer_blog_image"><img src="../../../../../opentravel/opentravel/images/footer_blog_3.jpg" alt="https://unsplash.com/@bergeryap87"></div>
 								<div class="footer_blog_content">
-									<div class="footer_blog_title"><a href="blog.html">Travel with us this year</a></div>
+									<div class="footer_blog_title"><a href="../../../../../opentravel/opentravel/blog.html">Travel with us this year</a></div>
 									<div class="footer_blog_date">Nov 29, 2017</div>
 								</div>
 							</div>
@@ -239,19 +393,19 @@
 						<div class="footer_content footer_contact">
 							<ul class="contact_info_list">
 								<li class="contact_info_item d-flex flex-row">
-									<div><div class="contact_info_icon"><img src="images/placeholder.svg" alt=""></div></div>
+									<div><div class="contact_info_icon"><img src="../../../../../opentravel/opentravel/images/placeholder.svg" alt=""></div></div>
 									<div class="contact_info_text">Microdistrict 7, 56</div>
 								</li>
 								<li class="contact_info_item d-flex flex-row">
-									<div><div class="contact_info_icon"><img src="images/phone-call.svg" alt=""></div></div>
+									<div><div class="contact_info_icon"><img src="../../../../../opentravel/opentravel/images/phone-call.svg" alt=""></div></div>
 									<div class="contact_info_text">+7 707 777 77 77</div>
 								</li>
 								<li class="contact_info_item d-flex flex-row">
-									<div><div class="contact_info_icon"><img src="images/message.svg" alt=""></div></div>
+									<div><div class="contact_info_icon"><img src="../../../../../opentravel/opentravel/images/message.svg" alt=""></div></div>
 									<div class="contact_info_text"><a href="mailto:contactme@gmail.com?Subject=Hello" target="_top">opentravel@gmail.com</a></div>
 								</li>
 								<li class="contact_info_item d-flex flex-row">
-									<div><div class="contact_info_icon"><img src="images/planet-earth.svg" alt=""></div></div>
+									<div><div class="contact_info_icon"><img src="../../../../../opentravel/opentravel/images/planet-earth.svg" alt=""></div></div>
 									<div class="contact_info_text"><a href="https://colorlib.com">www.opentravel.com</a></div>
 								</li>
 							</ul>
@@ -279,11 +433,11 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 					<div class="footer_nav_container d-flex flex-row align-items-center justify-content-lg-end">
 						<div class="footer_nav">
 							<ul class="footer_nav_list">
-								<li class="footer_nav_item"><a href="index.html">home</a></li>
+								<li class="footer_nav_item"><a href="../../../../../opentravel/opentravel/index.html">home</a></li>
 								<li class="footer_nav_item"><a href="#">about us</a></li>
-								<li class="footer_nav_item"><a href="offers.html">offers</a></li>
-								<li class="footer_nav_item"><a href="blog.html">news</a></li>
-								<li class="footer_nav_item"><a href="contact.html">contact</a></li>
+								<li class="footer_nav_item"><a href="../../../../../opentravel/opentravel/offers.html">offers</a></li>
+								<li class="footer_nav_item"><a href="../../../../../opentravel/opentravel/blog.html">news</a></li>
+								<li class="footer_nav_item"><a href="../../../../../opentravel/opentravel/contact.html">contact</a></li>
 							</ul>
 						</div>
 					</div>
