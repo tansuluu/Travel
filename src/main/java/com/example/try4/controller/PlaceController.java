@@ -90,10 +90,7 @@ public class PlaceController {
             System.out.println(principal.getName());
             if (principal.getName() != null) {
                 if (likeDAO.hasPut(principal.getName(),id)) {
-                    System.out.println("VFvdv");
                     model.addAttribute("trueFalse", "yes");
-                    System.out.println("fevdvfvfg");
-                    System.out.println(likeDAO.hasPut(principal.getName(),id));
                 }
                 else model.addAttribute("trueFalse", "no" );
             }

@@ -4,17 +4,16 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "likes")
-public class Like {
+public class Likes {
     @Id
     @GeneratedValue
     @Column(name = "id", nullable = false)
     private long id;
-    @Column(name = "username")
+    @Column(name = "username",length = 128)
     private String username;
     @Column(name = "app_id")
     private long app_id;
-
-    public Like(String username, long app_id) {
+    public Likes(String username, long app_id) {
         this.username = username;
         this.app_id = app_id;
     }
@@ -43,3 +42,4 @@ public class Like {
         this.app_id = app_id;
     }
 }
+
