@@ -83,71 +83,8 @@ public class ApplicationController {
 
         return "redirect:/";
     }
-    @GetMapping("/image/{filename:.+}")
-    @ResponseBody
-    public ResponseEntity<Resource> getImage(@PathVariable String filename) {
-        Resource file = storageService.loadFile(filename);
-        String mimeType = "";
-        try {
-            mimeType = Files.probeContentType(file.getFile().toPath());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return ResponseEntity.ok()
-                .header(HttpHeaders.CONTENT_DISPOSITION, "filename=\"" + file.getFilename() + "\"")
 
-                .body(file);
-    }
-    @GetMapping("/avatar/{filename:.+}")
-    @ResponseBody
-    public ResponseEntity<Resource> getAvatar(@PathVariable String filename) {
-        Resource file = storageService.loadAvatar(filename);
-        String mimeType = "";
-        try {
-            mimeType = Files.probeContentType(file.getFile().toPath());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return ResponseEntity.ok()
-                .header(HttpHeaders.CONTENT_DISPOSITION, "filename=\"" + file.getFilename() + "\"")
 
-                .body(file);
-    }
-    @RequestMapping("/appInfo")
-    public String showApplications(Model model, @RequestParam("id")long id, Principal principal){
-        Application ap=applicationDAO.updateView(id,1);
-        List<Comment> list=commentDAO.findComment(id);
-        List<Application> popular=applicationDAO.findPopular();
-        model.addAttribute("comments",list);
-        model.addAttribute("app",ap);
-        model.addAttribute("popular",popular);
-        Comment comment=new Comment();
-        model.addAttribute("comment",comment);
-        try {
-            if (principal.getName() != null) {
-                if (likeDAO.hasPut(principal.getName(),id)) {
-                    model.addAttribute("trueFalse", "yes");
-                    System.out.println(likeDAO.hasPut(principal.getName(),id));
-                }
-                else model.addAttribute("trueFalse", "no" );
-            }
-        }catch (Exception e){
-
-        }
-        return "single-post-2";
-    }
-    @RequestMapping(value = "/newComment", method = RequestMethod.POST)
-    public String saveComment(@ModelAttribute("comment") @Valid Comment comment, BindingResult result, Principal principal, @RequestParam("appId") long appId){
-        if (result.hasErrors()) {
-            return "redirect:/appInfo?id="+appId+"#comment";
-        }
-        comment.setUsername(principal.getName());
-        comment.setId_app(appId);
-        comment.setImage(appUserDAO.findAppUserByUserName(principal.getName()).getUrlImage());
-        commentDAO.addComment(comment);
-        applicationDAO.updateCommentNum(comment.getId_app(),1);
-        return "redirect:/appInfo?id="+appId+"#comment";
-    }
     @RequestMapping("/deleteComment")
     public String deleteComment(@RequestParam("id") long id, @RequestParam("apId") long appId){
         applicationDAO.updateCommentNum(appId,-1);

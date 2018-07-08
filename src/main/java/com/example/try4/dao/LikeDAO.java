@@ -25,6 +25,7 @@ public class LikeDAO {
     }
     public  boolean hasPut(String name,long app_id) {
         try {
+            System.out.println("herere");
             String sql = "Select e from " + Like.class.getName() + " e " //
                     + " Where e.username = :username and e.app_id=:id";
 
@@ -32,6 +33,7 @@ public class LikeDAO {
             query.setParameter("username", name);
             query.setParameter("id", app_id);
             Like like = (Like) query.getSingleResult();
+            System.out.println("55555555");
             if (like!=null) {
                 return true;
             }

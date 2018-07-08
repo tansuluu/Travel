@@ -115,6 +115,18 @@ public class PlaceDAO {
         place.setView(place.getView()+n);
         return addPlace(place);
     }
+    public Place updateCommentNum(long id,int n){
+        Place application=findPlaceId(id);
+        application.setView(application.getView()-1);
+        application.setComNumber(application.getComNumber()+n);
+        return addPlace(application);
+    }
+    public Place updateLikes(long id,int n){
+        Place application=findPlaceId(id);
+        application.setView(application.getView()-1);
+        application.setLikes(application.getLikes()+n);
+        return addPlace(application);
+    }
 
 
 }

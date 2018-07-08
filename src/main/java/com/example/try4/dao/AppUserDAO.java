@@ -193,7 +193,7 @@ public class AppUserDAO  {
     public void delete(long id) {
         AppUser user = findAppUserByUserId(id);
         for (Comment com : commentDAO.findCommentByUsername(user.getUserName())) {
-            applicationDAO.updateCommentNum(com.getId_app(),-1);
+            applicationDAO.updateCommentNum(com.getId_place(),-1);
             commentDAO.deleteComment(com.getId());
         }
         for (Application app : applicationDAO.getUsersApplication(user.getUserName())) {

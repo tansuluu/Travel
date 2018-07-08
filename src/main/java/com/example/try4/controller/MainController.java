@@ -176,11 +176,10 @@ public class MainController {
                                @ModelAttribute("user") @Validated AppUserForm user, //
                                BindingResult result, //
                                final RedirectAttributes redirectAttributes, HttpServletRequest request, @RequestParam(name = "file",required = false)MultipartFile file) {
-        System.out.println("heteee");
+
         if (result.hasErrors()) {
             return "register";
         }
-        System.out.println("hetedsdddeedededee");
         user.setUrlImage("gmail.png");
 
         if (!file.isEmpty()){

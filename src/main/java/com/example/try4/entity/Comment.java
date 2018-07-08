@@ -26,33 +26,13 @@ public class Comment {
     @Column(name = "image", length = 136)
     private String image;
 
+    public Comment() {
+    }
+
     public Comment(String username, long id_place, String comentText) {
         this.username = username;
         this.id_place = id_place;
         this.comentText = comentText;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    public void setId_app(long id_app) {
-        this.id_place = id_place;
-    }
-
-    public Date getDateCom() {
-        return dateCom;
-    }
-
-    public void setDateCom(Date dateCom) {
-        this.dateCom = dateCom;
-    }
-
-    public Comment() {
     }
 
     public long getId() {
@@ -67,16 +47,16 @@ public class Comment {
         return username;
     }
 
-    public void setUsername(String id_user) {
-        this.username = id_user;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public long getId_app() {
+    public long getId_place() {
         return id_place;
     }
 
-    public void setId_app(int id_app) {
-        this.id_place = id_app;
+    public void setId_place(long id_place) {
+        this.id_place = id_place;
     }
 
     public String getComentText() {
@@ -85,5 +65,21 @@ public class Comment {
 
     public void setComentText(String comentText) {
         this.comentText = comentText;
+    }
+
+    public Date getDateCom() {
+        return dateCom;
+    }
+
+    public void setDateCom(Date dateCom) {
+        this.dateCom = dateCom;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }

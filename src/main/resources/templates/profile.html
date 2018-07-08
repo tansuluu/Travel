@@ -168,10 +168,13 @@
                         <div sec:authorize="hasRole('ROLE_USER')" th:if="${#request.userPrincipal!=null}">
                             <a  th:if="${user.userName==#request.userPrincipal.name}"
                                 class="load-more-btn" th:href="@{/updateUser(id=${user.userId})}"><b>UPDATE</b></a>
+                                <a class="load-more-btn" th:href="@{/newPlace}"><b>NEW PLACE</b></a><br>
+                                <a class="load-more-btn" th:href="@{/newBlog}"><b>NEW BLOG</b></a>
                         </div>
                         <div class="right-area" sec:authorize="hasRole('ROLE_ADMIN')">
                             <a class="load-more-btn" th:href="@{/updateUser(id=${user.userId})}"><b>UPDATE USER</b></a><br>
                             <a class="load-more-btn" th:href="@{/deleteUser(id=${user.userId})}"><b>DELETE USER</b></a>
+
                         </div>
                     </div>
                 </div>
@@ -191,11 +194,7 @@
                     <div class="single-post post-style-1">
 
                         <div class="blog-image"><img th:if="${app1.getPhoto1()}!=null" th:src="@{${'/image/'+app1.photo1}}" alt="Blog Image"></div>
-
-                        <a class="avatar" href="#"><img th:src="@{${app1.image}}"  alt="Profile Image"></a>
-
                         <div class="blog-info">
-
                             <h4 class="title"><a th:href="@{/placeInfo(id=${app1.id})}" ><b th:text="${app1.title}"></b></a></h4>
 
                             <div id = "Tansulu_kreative">

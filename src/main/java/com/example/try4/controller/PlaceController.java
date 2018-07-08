@@ -6,7 +6,6 @@ import com.example.try4.dao.AppUserDAO;
 import com.example.try4.dao.CommentDAO;
 import com.example.try4.dao.LikeDAO;
 import com.example.try4.dao.PlaceDAO;
-import com.example.try4.entity.Application;
 import com.example.try4.entity.Comment;
 import com.example.try4.entity.Place;
 import com.example.try4.service.StorageService;
@@ -68,7 +67,6 @@ public class PlaceController {
             app.setUsarname(principal.getName());
             placeDAO.addPlace(app);
         } catch (Exception e) {
-
             model.addAttribute("errorMessage", "Error: " + e.getMessage());
             model.addAttribute("place", app);
             model.addAttribute("message","There is already exist such image");
@@ -89,16 +87,31 @@ public class PlaceController {
         Comment comment=new Comment();
         model.addAttribute("comment",comment);
         try {
+            System.out.println(principal.getName());
             if (principal.getName() != null) {
                 if (likeDAO.hasPut(principal.getName(),id)) {
+                    System.out.println("VFvdv");
                     model.addAttribute("trueFalse", "yes");
+                    System.out.println("fevdvfvfg");
                     System.out.println(likeDAO.hasPut(principal.getName(),id));
                 }
                 else model.addAttribute("trueFalse", "no" );
             }
         }catch (Exception e){
-
+            System.out.println("error");
         }
         return "places";
+    }
+    @RequestMapping(value = "/newComment", method = RequestMethod.POST)
+    public String saveComment(@ModelAttribute("comment") @Valid Comment comment, BindingResult result, Principal principal, @RequestParam("appId") long appId){
+        if (result.hasErrors()) {
+            return "redirect:/placeInfo?id="+appId+"#comment";
+        }
+        comment.setUsername(principal.getName());
+        comment.setId_place(appId);
+        comment.setImage(appUserDAO.findAppUserByUserName(principal.getName()).getUrlImage());
+        commentDAO.addComment(comment);
+        placeDAO.updateCommentNum(comment.getId_place(),1);
+        return "redirect:/placeInfo?id="+appId+"#comment";
     }
 }

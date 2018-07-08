@@ -167,7 +167,7 @@
 					<div class="post-image"><img th:if="${app.getPhoto3()}!=null" th:src="@{${'/image/'+app.photo3}}"alt="Blog Image"></div>
 					<div class="post-bottom-area">
 						<div sec:authorize="hasRole('ROLE_USER')" th:if="${#request.userPrincipal!=null}">
-							<a  th:if="${app.usarname==#request.userPrincipal.name}"  class="load-more-btn" th:href="@{/deleteApp(id=${app.apId})}"><b>DELETE THE APPLICACTION</b></a>
+							<a  th:if="${app.usarname==#request.userPrincipal.name}"  class="load-more-btn" th:href="@{/deleteApp(id=${app.id})}"><b>DELETE THE APPLICACTION</b></a>
 						</div>
 						<div class="right-area" sec:authorize="hasRole('ROLE_ADMIN')">
 							<a class="load-more-btn" th:href="@{/deleteApp(id=${app.id})}"><b>DELETE THE APPLICACTION</b></a>
@@ -175,8 +175,8 @@
 
 						<div class="post-icons-area">
 							<ul class="post-icons" >
-								<li  th:if="${#request.userPrincipal!=null}"><a  th:if="${trueFalse=='yes'}"  style="color: red" href="" th:text="${' '+app.likes}" class="ion-heart" th:href="@{/deleteLike(id=${app.apId},username=${#request.userPrincipal.name})}"></a></li>
-								<li th:if="${#request.userPrincipal!=null}" ><a   th:if="${trueFalse=='no'}"  th:href="@{/addLike(id=${app.apId},username=${#request.userPrincipal.name})}" th:text="${' '+app.likes}" class="ion-heart"></a></li>
+								<li  th:if="${#request.userPrincipal!=null}"><a  th:if="${trueFalse=='yes'}"  style="color: red" href="" th:text="${' '+app.likes}" class="ion-heart" th:href="@{/deleteLike(id=${app.id},username=${#request.userPrincipal.name})}"></a></li>
+								<li th:if="${#request.userPrincipal!=null}" ><a   th:if="${trueFalse=='no'}"  th:href="@{/addLike(id=${app.id},username=${#request.userPrincipal.name})}" th:text="${' '+app.likes}" class="ion-heart"></a></li>
 								<li><a th:if="${#request.userPrincipal==null}"  th:text="${' '+app.likes}" class="ion-heart" style="color: red"></a></li>
 								<li><a href="#" class="ion-chatbubble"  th:text="${' '+app.comNumber}"></a></li>
 								<li><a href="#" class="ion-eye" th:text="${' '+app.view}" ></a></li>

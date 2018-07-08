@@ -7,13 +7,13 @@ import javax.persistence.Table;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "Userconnection")
+@Table(name = "userconnection")
 public class UserConnection implements Serializable {
 
     private static final long serialVersionUID = -6991752510891411572L;
 
     @Id
-    @Column(name = "Userid", length = 200, nullable = false)
+    @Column(name = "Userid", nullable = false)
     private String userId;
 
     @Id

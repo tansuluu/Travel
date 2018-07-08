@@ -28,7 +28,7 @@ public class CommentDAO {
     public List<Comment> findComment(long id) {
         try {
             String sql = "Select e from " + Comment.class.getName() + " e " //
-                    + " Where e.id_app = :id_app ";
+                    + " Where e.id_place = :id_app ";
 
             Query query = entityManager.createQuery(sql, Comment.class);
             query.setParameter("id_app", id);
@@ -69,5 +69,6 @@ public class CommentDAO {
             return null;
         }
     }
+
 
 }
