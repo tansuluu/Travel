@@ -66,7 +66,7 @@
 						<div class="main_nav_container ml-auto">
 							<ul class="main_nav_list">
 								<li class="main_nav_item"><a th:href="@{/}">home</a></li>
-								<li class="main_nav_item"><a th:href="@{/about}">about almaty</a></li>
+								<li class="main_nav_item"><a th:href="@{/about}">about Kok-Zhaylau</a></li>
 								<li class="main_nav_item"><a th:href="@{/offers}">offers</a></li>
 								<li class="main_nav_item"><a th:href="@{/blog}">blog</a></li>
 								<li class="main_nav_item"><a th:href="@{/contact}">contact</a></li>
@@ -115,11 +115,11 @@
 			<div class="menu_close_container"><div class="menu_close"></div></div>
 			<div class="logo menu_logo"><a href="#"><img src="images/logo.png" alt=""></a></div>
 			<ul>
-				<li class="menu_item"><a href="#">home</a></li>
-				<li class="menu_item"><a href="about.html">about us</a></li>
-				<li class="menu_item"><a href="offers.html">offers</a></li>
-				<li class="menu_item"><a href="blog.html">news</a></li>
-				<li class="menu_item"><a href="contact.html">contact</a></li>
+				<li class="menu_item"><a th:href="@{/}">home</a></li>
+				<li class="menu_item"><a th:href="@{/about}">about us</a></li>
+				<li class="menu_item"><a th:href="@{/offers}">offers</a></li>
+				<li class="menu_item"><a th:href="@{/blog}">blog</a></li>
+				<li class="menu_item"><a th:href="@{/contact}">contact</a></li>
 			</ul>
 		</div>
 	</div>
@@ -143,7 +143,7 @@
 						<div class="home_slider_content_inner" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
 							<h1>discover</h1>
 							<h1>Almaty</h1>
-							<div class="button home_slider_button"><div class="button_bcg"></div><a href="#">explore now</a></div>
+							<div class="button home_slider_button"><div class="button_bcg"></div><a th:href="@{/about}">explore now</a></div>
 						</div>
 					</div>
 				</div>
@@ -156,7 +156,7 @@
 						<div class="home_slider_content_inner" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
 							<h1>discover</h1>
 							<h1>the world</h1>
-							<div class="button home_slider_button"><div class="button_bcg"></div><a href="#">explore now<span></span><span></span><span></span></a></div>
+							<div class="button home_slider_button"><div class="button_bcg"></div><a th:href="@{/about}">explore now<span></span><span></span><span></span></a></div>
 						</div>
 					</div>
 				</div>
@@ -169,7 +169,7 @@
 						<div class="home_slider_content_inner" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
 							<h1>discover</h1>
 							<h1>the world</h1>
-							<div class="button home_slider_button"><div class="button_bcg"></div><a href="#">explore now<span></span><span></span><span></span></a></div>
+							<div class="button home_slider_button"><div class="button_bcg"></div><a th:href="@{/about}">explore now<span></span><span></span><span></span></a></div>
 						</div>
 					</div>
 				</div>
@@ -204,7 +204,7 @@
 								<div class="cta_title">Welcome to Almaty</div>
 								
 								<p class="cta_text">The leafy city of Almaty (Alma-Ata; Алматы), with a backdrop of the snowcapped Zailiysky Alatau, has always been among the more appealing Kazakh creations in Central Asia. Today Almaty's new rich have expensive suburban apartments, large SUVs, glitzy shopping malls, Western-style coffee lounges, expensive restaurants, dance-till-dawn nightclubs and new ski resorts to help them enjoy life to the full. Meanwhile, others from the city's outer districts and the countryside squeeze into packed buses and rickety marshrutkas around the Green Market (Zelyony Bazar) or Sayakhat bus station.</p>
-								<div class="button cta_button"><div class="button_bcg"></div><a href="file:///Users/macbook/Downloads/travelix/about.html">Read more</a></div>
+								<div class="button cta_button"><div class="button_bcg"></div><a th:href="@{/about}">Read more</a></div>
 							</div>
 
 							<!-- CTA Slider Item -->
@@ -260,10 +260,10 @@
 					<div class="intro_item">
 						<div class="intro_item_overlay"></div>
 						<!-- Image by https://unsplash.com/@hellolightbulb -->
-						<div class="intro_item_background" style="background-image:url(images/intro_2.jpg)"></div>
+						<div class="intro_item_background" style="background-image:url(images/about_background.jpg)"></div>
 						<div class="intro_item_content d-flex flex-column align-items-center justify-content-center">
 							
-							<div class="button intro_button"><div class="button_bcg"></div><a href="file:///Users/macbook/Downloads/travelix/about.html">see more</div>
+							<div class="button intro_button"><div class="button_bcg"></div><a th:href="@{/about}">see more</div>
 							<div class="intro_center text-center">
 								<h1>Explore the city</h1>
 								<div class="intro_price">Get to know history and intersting facts about the city</div>
@@ -279,10 +279,10 @@
 					<div class="intro_item">
 						<div class="intro_item_overlay"></div>
 						<!-- Image by https://unsplash.com/@dnevozhai -->
-						<div class="intro_item_background" style="background-image:url(images/intro_1.jpg)"></div>
+						<div class="intro_item_background" style="background-image:url(https://i.ytimg.com/vi/96xtn-Gv9ag/maxresdefault.jpg)"></div>
 						<div class="intro_item_content d-flex flex-column align-items-center justify-content-center">
 							
-							<div class="button intro_button"><div class="button_bcg"></div><a href="file:///Users/macbook/Downloads/travelix/offers.html">see more</a></div>
+							<div class="button intro_button"><div class="button_bcg"></div><a th:href="@{/offers}">see more</a></div>
 							<div class="intro_center text-center">
 								<h1>Plan your trip</h1>
 								<div class="intro_price">Buy plain tickets and reserve hotel rooms</div>
@@ -297,10 +297,10 @@
 					<div class="intro_item">
 						<div class="intro_item_overlay"></div>
 						<!-- Image by https://unsplash.com/@willianjusten -->
-						<div class="intro_item_background" style="background-image:url(images/intro_3.jpg)"></div>
+						<div class="intro_item_background" style="background-image:url(https://avatars.mds.yandex.net/get-pdb/28866/fbbf5452-1f52-4f51-aaa8-e949a6f93b66/s800)"></div>
 						<div class="intro_item_content d-flex flex-column align-items-center justify-content-center">
 							
-							<div class="button intro_button"><div class="button_bcg"></div><a href="file:///Users/macbook/Downloads/travelix/blog.html">see more</a></div>
+							<div class="button intro_button"><div class="button_bcg"></div><a th:href="@{/blog}">see more</a></div>
 							<div class="intro_center text-center">
 								<h1>Find your interests and connect with locals</h1>
 								<div class="intro_price">Contact with local people which will guide you through your interesting places</div>
@@ -362,7 +362,7 @@
 						</div>
 					</div>
 				</div>
-				
+
 				<!-- Offers Item -->
 				<div class="col-lg-6 offers_col">
 					<div class="offers_item">
@@ -463,7 +463,7 @@
 										<ul class="offers_icons_list">
 											<li class="offers_icons_item"><img src="images/post.png" alt=""></li>
 											<li class="offers_icons_item"><img src="images/compass.png" alt=""></li>
-										
+
 										</ul>
 									</div>
 									<div class="offers_link"><a href="offers.html">read more</a></div>

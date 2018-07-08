@@ -83,6 +83,16 @@ public class PlaceDAO {
             return null;
         }
     }
+    public List<Place> findPopular4() {
+        try {
+            String sql = "Select e from " + Place.class.getName() + " e " //
+                    + "order by e.view desc ";
+            Query query = entityManager.createQuery(sql, Place.class);
+            return (List<Place>) query.setFirstResult(0).setMaxResults(4).getResultList();
+        } catch (NoResultException e) {
+            return null;
+        }
+    }
     public List<Place> search(String word) {
         try {
             String sql = "Select e from " + Place.class.getName() + " e " //

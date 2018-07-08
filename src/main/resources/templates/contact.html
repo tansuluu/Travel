@@ -1,5 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
 <title>Contact</title>
 <meta charset="utf-8">
@@ -26,24 +28,27 @@
 			<div class="container">
 				<div class="row">
 					<div class="col d-flex flex-row">
-						<div class="phone">7 707 777 77 77</div>
 						<div class="social">
 							<ul class="social_list">
-								
+
 								<li class="social_list_item"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
 								<li class="social_list_item"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
 								<li class="social_list_item"><a href="#"><i class="fa fa-vk" aria-hidden="true"></i></a></li>
 								<li class="social_list_item"><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-								
+
 							</ul>
 						</div>
 						<div class="user_box ml-auto">
-							<div class="user_box_login user_box_link"><a href="profile/index.html">login</a></div>
-							<div class="user_box_register user_box_link"><a href="login/index.html">register</a></div>
+							<div class="user_box_register user_box_link"><a th:if="${#request.userPrincipal != null}" th:href="@{/logout}">Logout</a></div>
+							<div class="user_box_register user_box_link"><a th:if="${#request.userPrincipal != null}" th:href="@{/userPage(username=${#request.userPrincipal.name})}"  th:text="${#request.userPrincipal.name}"></a></div>
+
+							<div class="user_box_register user_box_link"><a th:if="${#request.userPrincipal == null}" th:href="@{/register}">Register</a></div>
+							<div class="user_box_register user_box_link"><a th:if="${#request.userPrincipal == null}" th:href="@{/login}">Login</a></div>
+
 						</div>
 					</div>
 				</div>
-			</div>		
+			</div>
 		</div>
 
 		<!-- Main Navigation -->
@@ -57,11 +62,11 @@
 						</div>
 						<div class="main_nav_container ml-auto">
 							<ul class="main_nav_list">
-								<li class="main_nav_item"><a href="index.html">home</a></li>
-								<li class="main_nav_item"><a href="about.html">about Almaty</a></li>
-								<li class="main_nav_item"><a href="offers.html">offers</a></li>
-								<li class="main_nav_item"><a href="blog.html">blog</a></li>
-								<li class="main_nav_item"><a href="#">contact</a></li>
+								<li class="main_nav_item"><a th:href="@{/}">home</a></li>
+								<li class="main_nav_item"><a th:href="@{/about}">about Kok-Zhaylau</a></li>
+								<li class="main_nav_item"><a th:href="@{/offers}">offers</a></li>
+								<li class="main_nav_item"><a th:href="@{/blog}">blog</a></li>
+								<li class="main_nav_item"><a th:href="@{/contact}">contact</a></li>
 							</ul>
 						</div>
 						<div class="content_search ml-lg-0 ml-auto">
@@ -91,13 +96,13 @@
 						<form id="search_form" class="search_form bez_1">
 							<input type="search" class="search_content_input bez_1">
 						</form>
-						
+
 						<div class="hamburger">
 							<i class="fa fa-bars trans_200"></i>
 						</div>
 					</div>
 				</div>
-			</div>	
+			</div>
 		</nav>
 
 	</header>
@@ -107,11 +112,11 @@
 			<div class="menu_close_container"><div class="menu_close"></div></div>
 			<div class="logo menu_logo"><a href="#"><img src="images/logo.png" alt=""></a></div>
 			<ul>
-				<li class="menu_item"><a href="index.html">home</a></li>
-				<li class="menu_item"><a href="about.html">about us</a></li>
-				<li class="menu_item"><a href="offers.html">offers</a></li>
-				<li class="menu_item"><a href="blog.html">news</a></li>
-				<li class="menu_item"><a href="#">contact</a></li>
+				<li class="menu_item"><a th:href="@{/}">home</a></li>
+				<li class="menu_item"><a th:href="@{/about}">about us</a></li>
+				<li class="menu_item"><a th:href="@{/offers}">offers</a></li>
+				<li class="menu_item"><a th:href="@{/blog}">blog</a></li>
+				<li class="menu_item"><a th:href="@{/contact}">contact</a></li>
 			</ul>
 		</div>
 	</div>

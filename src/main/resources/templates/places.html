@@ -25,7 +25,6 @@
 	<link rel="stylesheet" type="text/html" th:href="@{/css/responsive.css}" />
 </head>
 <body class="body">
-
 <header class="header">
 
 	<!-- Top Bar -->
@@ -68,11 +67,11 @@
 					</div>
 					<div class="main_nav_container ml-auto">
 						<ul class="main_nav_list">
-							<li class="main_nav_item"><a href="#">home</a></li>
-							<li class="main_nav_item"><a href="about.html">about almaty</a></li>
-							<li class="main_nav_item"><a href="offers.html">offers</a></li>
-							<li class="main_nav_item"><a href="blog.html">blog</a></li>
-							<li class="main_nav_item"><a href="contact.html">contact</a></li>
+							<li class="main_nav_item"><a th:href="@{/}">home</a></li>
+							<li class="main_nav_item"><a th:href="@{/about}">about almaty</a></li>
+							<li class="main_nav_item"><a th:href="@{/offers}">offers</a></li>
+							<li class="main_nav_item"><a th:href="@{/blog}">blog</a></li>
+							<li class="main_nav_item"><a th:href="@{/contact}">contact</a></li>
 						</ul>
 					</div>
 					<div class="content_search ml-lg-0 ml-auto">
@@ -102,7 +101,6 @@
 					<form id="search_form" class="search_form bez_1">
 						<input type="search" class="search_content_input bez_1">
 					</form>
-
 					<div class="hamburger">
 						<i class="fa fa-bars trans_200"></i>
 					</div>
@@ -118,15 +116,14 @@
 		<div class="menu_close_container"><div class="menu_close"></div></div>
 		<div class="logo menu_logo"><a href="#"><img src="images/logo.png" alt=""></a></div>
 		<ul>
-			<li class="menu_item"><a href="#">home</a></li>
-			<li class="menu_item"><a href="about.html">about us</a></li>
-			<li class="menu_item"><a href="offers.html">offers</a></li>
-			<li class="menu_item"><a href="blog.html">news</a></li>
-			<li class="menu_item"><a href="contact.html">contact</a></li>
+			<li class="menu_item"><a th:href="@{/}">home</a></li>
+			<li class="menu_item"><a th:href="@{/about}">about us</a></li>
+			<li class="menu_item"><a th:href="@{/offers}">offers</a></li>
+			<li class="menu_item"><a th:href="@{/blog}">blog</a></li>
+			<li class="menu_item"><a th:href="@{/contact}">contact</a></li>
 		</ul>
 	</div>
 </div>
-
 <div class="slider">
 
 </div><!-- slider -->

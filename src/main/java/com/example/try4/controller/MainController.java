@@ -2,9 +2,12 @@ package com.example.try4.controller;
 
 import com.example.try4.dao.AppUserDAO;
 import com.example.try4.dao.ApplicationDAO;
+import com.example.try4.dao.LikeDAO;
+import com.example.try4.dao.PlaceDAO;
 import com.example.try4.entity.AppRole;
 import com.example.try4.entity.AppUser;
 import com.example.try4.entity.Application;
+import com.example.try4.entity.Place;
 import com.example.try4.form.AppUserForm;
 import com.example.try4.service.EmailService;
 import com.example.try4.service.StorageService;
@@ -60,6 +63,8 @@ public class MainController {
     private EmailService emailService;
     @Autowired
     private AppUserValidator appUserValidator;
+    @Autowired
+    private PlaceDAO placeDAO;
 
     @InitBinder
     protected void initBinder(WebDataBinder dataBinder) {
@@ -79,6 +84,8 @@ public class MainController {
     @RequestMapping(value = { "/", "/welcome" }, method = RequestMethod.GET)
     public String welcomePage(Model model) {
 
+        List<Place> popular=placeDAO.findPopular4();
+        model.addAttribute("popular",popular);
         return "index";
     }
     @RequestMapping(value = { "/about" }, method = RequestMethod.GET)
@@ -88,7 +95,8 @@ public class MainController {
     }
     @RequestMapping(value = { "/offers" }, method = RequestMethod.GET)
     public String welcome(Model model) {
-
+        List<Place> list=placeDAO.getPlace();
+        model.addAttribute("places",list);
         return "offers";
     }
     @RequestMapping(value = { "/blog" }, method = RequestMethod.GET)

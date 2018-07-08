@@ -1,5 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
 <title>Offers</title>
 <meta charset="utf-8">
@@ -26,22 +28,27 @@
 			<div class="container">
 				<div class="row">
 					<div class="col d-flex flex-row">
-						<div class="phone">+7 707 777 77 77</div>
 						<div class="social">
 							<ul class="social_list">
+
 								<li class="social_list_item"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
 								<li class="social_list_item"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
 								<li class="social_list_item"><a href="#"><i class="fa fa-vk" aria-hidden="true"></i></a></li>
 								<li class="social_list_item"><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+
 							</ul>
 						</div>
 						<div class="user_box ml-auto">
-							<div class="user_box_login user_box_link"><a href="profile/index.html">login</a></div>
-							<div class="user_box_register user_box_link"><a href="login/index.html">register</a></div>
+							<div class="user_box_register user_box_link"><a th:if="${#request.userPrincipal != null}" th:href="@{/logout}">Logout</a></div>
+							<div class="user_box_register user_box_link"><a th:if="${#request.userPrincipal != null}" th:href="@{/userPage(username=${#request.userPrincipal.name})}"  th:text="${#request.userPrincipal.name}"></a></div>
+
+							<div class="user_box_register user_box_link"><a th:if="${#request.userPrincipal == null}" th:href="@{/register}">Register</a></div>
+							<div class="user_box_register user_box_link"><a th:if="${#request.userPrincipal == null}" th:href="@{/login}">Login</a></div>
+
 						</div>
 					</div>
 				</div>
-			</div>		
+			</div>
 		</div>
 
 		<!-- Main Navigation -->
@@ -55,11 +62,11 @@
 						</div>
 						<div class="main_nav_container ml-auto">
 							<ul class="main_nav_list">
-								<li class="main_nav_item"><a href="index.html">home</a></li>
-								<li class="main_nav_item"><a href="about.html">about Almaty</a></li>
-								<li class="main_nav_item"><a href="#">offers</a></li>
-								<li class="main_nav_item"><a href="blog.html">blog</a></li>
-								<li class="main_nav_item"><a href="contact.html">contact</a></li>
+								<li class="main_nav_item"><a th:href="@{/}">home</a></li>
+								<li class="main_nav_item"><a th:href="@{/about}">about almaty</a></li>
+								<li class="main_nav_item"><a th:href="@{/offers}">offers</a></li>
+								<li class="main_nav_item"><a th:href="@{/blog}">blog</a></li>
+								<li class="main_nav_item"><a th:href="@{/contact}">contact</a></li>
 							</ul>
 						</div>
 						<div class="content_search ml-lg-0 ml-auto">
@@ -89,13 +96,13 @@
 						<form id="search_form" class="search_form bez_1">
 							<input type="search" class="search_content_input bez_1">
 						</form>
-						
+
 						<div class="hamburger">
 							<i class="fa fa-bars trans_200"></i>
 						</div>
 					</div>
 				</div>
-			</div>	
+			</div>
 		</nav>
 
 	</header>
@@ -105,11 +112,11 @@
 			<div class="menu_close_container"><div class="menu_close"></div></div>
 			<div class="logo menu_logo"><a href="#"><img src="images/logo.png" alt=""></a></div>
 			<ul>
-				<li class="menu_item"><a href="index.html">home</a></li>
-				<li class="menu_item"><a href="about.html">about us</a></li>
-				<li class="menu_item"><a href="#">offers</a></li>
-				<li class="menu_item"><a href="blog.html">news</a></li>
-				<li class="menu_item"><a href="contact.html">contact</a></li>
+				<li class="menu_item"><a th:href="@{/}">home</a></li>
+				<li class="menu_item"><a th:href="@{/about}">about us</a></li>
+				<li class="menu_item"><a th:href="@{/offers}">offers</a></li>
+				<li class="menu_item"><a th:href="@{/blog}">blog</a></li>
+				<li class="menu_item"><a th:href="@{/contact}">contact</a></li>
 			</ul>
 		</div>
 	</div>
@@ -166,7 +173,7 @@
 
 				</div>
 
-				<div class="col-lg-12">
+				<div class="col-lg-12" th:each="place:${places}">
 					<!-- Offers Grid -->
 
 					<div class="offers_grid">
@@ -179,13 +186,12 @@
 								<div class="col-lg-3 col-1680-4">
 									<div class="offers_image_container">
 										<!-- Image by https://unsplash.com/@kensuarez -->
-										<div class="offers_image_background" style="background-image:url(images/offer_1.jpg)"></div>
-										<div class="offer_name"><a href="single_listing.html">grand castle</a></div>
+										<div class="offers_image_background"  ><img th:src="@{${'/image/'+place.photo1}}" width="300px"></div>
 									</div>
 								</div>
 								<div class="col-lg-8">
 									<div class="offers_content">
-										<div class="offers_price">$70<span>per night</span></div>
+										<div class="offers_price" th:text="${place.title}"></div>
 										<div class="rating_r rating_r_4 offers_rating" data-rating="4">
 											<i></i>
 											<i></i>
@@ -193,7 +199,7 @@
 											<i></i>
 											<i></i>
 										</div>
-										<p class="offers_text">Suspendisse potenti. In faucibus massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu convallis tortor. Lorem ipsum dolor sit amet.</p>
+										<p class="offers_text" th:text="${place.text}"></p>
 										<div class="offers_icons">
 											<ul class="offers_icons_list">
 												<li class="offers_icons_item"><img src="images/post.png" alt=""></li>
@@ -202,189 +208,13 @@
 												<li class="offers_icons_item"><img src="images/sailboat.png" alt=""></li>
 											</ul>
 										</div>
-										<div class="button book_button"><a href="#">book<span></span><span></span><span></span></a></div>
+										<div class="button book_button"><a th:href="@{/appInfo(id=${place.id})}">more<span></span><span></span><span></span></a></div>
 										<div class="offer_reviews">
 											<div class="offer_reviews_content">
-												<div class="offer_reviews_title">very good</div>
-												<div class="offer_reviews_subtitle">100 reviews</div>
+												<div class="offer_reviews_title" th:text="${'likes: '+place.likes}" ></div>
+												<div class="offer_reviews_subtitle" th:text="${'comments: '+place.comNumber}"></div>
 											</div>
-											<div class="offer_reviews_rating text-center">8.1</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Offers Item -->
-
-						<div class="offers_item rating_3">
-							<div class="row">
-								<div class="col-lg-1 temp_col"></div>
-								<div class="col-lg-3 col-1680-4">
-									<div class="offers_image_container">
-										<!-- Image by https://unsplash.com/@thoughtcatalog -->
-										<div class="offers_image_background" style="background-image:url(images/offer_5.jpg)"></div>
-										<div class="offer_name"><a href="single_listing.html">eurostar hotel</a></div>
-									</div>
-								</div>
-								<div class="col-lg-8">
-									<div class="offers_content">
-										<div class="offers_price">$50<span>per night</span></div>
-										<div class="rating_r rating_r_3 offers_rating" data-rating="3">
-											<i></i>
-											<i></i>
-											<i></i>
-											<i></i>
-											<i></i>
-										</div>
-										<p class="offers_text">Suspendisse potenti. In faucibus massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu convallis tortor. Lorem ipsum dolor sit amet.</p>
-										<div class="offers_icons">
-											<ul class="offers_icons_list">
-												<li class="offers_icons_item"><img src="images/post.png" alt=""></li>
-												<li class="offers_icons_item"><img src="images/compass.png" alt=""></li>
-												<li class="offers_icons_item"><img src="images/bicycle.png" alt=""></li>
-												<li class="offers_icons_item"><img src="images/sailboat.png" alt=""></li>
-											</ul>
-										</div>
-										<div class="button book_button"><a href="#">book<span></span><span></span><span></span></a></div>
-										<div class="offer_reviews">
-											<div class="offer_reviews_content">
-												<div class="offer_reviews_title">very good</div>
-												<div class="offer_reviews_subtitle">100 reviews</div>
-											</div>
-											<div class="offer_reviews_rating text-center">8.1</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Offers Item -->
-
-						<div class="offers_item rating_5">
-							<div class="row">
-								<div class="col-lg-1 temp_col"></div>
-								<div class="col-lg-3 col-1680-4">
-									<div class="offers_image_container">
-										<!-- Image by https://unsplash.com/@mindaugas -->
-										<div class="offers_image_background" style="background-image:url(images/offer_6.jpg)"></div>
-										<div class="offer_name"><a href="single_listing.html">grand castle</a></div>
-									</div>
-								</div>
-								<div class="col-lg-8">
-									<div class="offers_content">
-										<div class="offers_price">$110<span>per night</span></div>
-										<div class="rating_r rating_r_5 offers_rating"  data-rating="5">
-											<i></i>
-											<i></i>
-											<i></i>
-											<i></i>
-											<i></i>
-										</div>
-										<p class="offers_text">Suspendisse potenti. In faucibus massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu convallis tortor. Lorem ipsum dolor sit amet.</p>
-										<div class="offers_icons">
-											<ul class="offers_icons_list">
-												<li class="offers_icons_item"><img src="images/post.png" alt=""></li>
-												<li class="offers_icons_item"><img src="images/compass.png" alt=""></li>
-												<li class="offers_icons_item"><img src="images/bicycle.png" alt=""></li>
-												<li class="offers_icons_item"><img src="images/sailboat.png" alt=""></li>
-											</ul>
-										</div>
-										<div class="button book_button"><a href="#">book<span></span><span></span><span></span></a></div>
-										<div class="offer_reviews">
-											<div class="offer_reviews_content">
-												<div class="offer_reviews_title">very good</div>
-												<div class="offer_reviews_subtitle">100 reviews</div>
-											</div>
-											<div class="offer_reviews_rating text-center">8.1</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Offers Item -->
-
-						<div class="offers_item rating_4">
-							<div class="row">
-								<div class="col-lg-1 temp_col"></div>
-								<div class="col-lg-3 col-1680-4">
-									<div class="offers_image_container">
-										<!-- Image by https://unsplash.com/@rktkn -->
-										<div class="offers_image_background" style="background-image:url(images/offer_7.jpg)"></div>
-										<div class="offer_name"><a href="single_listing.html">eurostar hotel</a></div>
-									</div>
-								</div>
-								<div class="col-lg-8">
-									<div class="offers_content">
-										<div class="offers_price">$50<span>per night</span></div>
-										<div class="rating_r rating_r_4 offers_rating" data-rating="4">
-											<i></i>
-											<i></i>
-											<i></i>
-											<i></i>
-											<i></i>
-										</div>
-										<p class="offers_text">Suspendisse potenti. In faucibus massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu convallis tortor. Lorem ipsum dolor sit amet.</p>
-										<div class="offers_icons">
-											<ul class="offers_icons_list">
-												<li class="offers_icons_item"><img src="images/post.png" alt=""></li>
-												<li class="offers_icons_item"><img src="images/compass.png" alt=""></li>
-												<li class="offers_icons_item"><img src="images/bicycle.png" alt=""></li>
-												<li class="offers_icons_item"><img src="images/sailboat.png" alt=""></li>
-											</ul>
-										</div>
-										<div class="button book_button"><a href="#">book<span></span><span></span><span></span></a></div>
-										<div class="offer_reviews">
-											<div class="offer_reviews_content">
-												<div class="offer_reviews_title">very good</div>
-												<div class="offer_reviews_subtitle">100 reviews</div>
-											</div>
-											<div class="offer_reviews_rating text-center">8.1</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Offers Item -->
-
-						<div class="offers_item rating_3">
-							<div class="row">
-								<div class="col-lg-1 temp_col"></div>
-								<div class="col-lg-3 col-1680-4">
-									<div class="offers_image_container">
-										<!-- Image by https://unsplash.com/@itsnwa -->
-										<div class="offers_image_background" style="background-image:url(images/offer_8.jpg)"></div>
-										<div class="offer_name"><a href="single_listing.html">grand castle</a></div>
-									</div>
-								</div>
-								<div class="col-lg-8">
-									<div class="offers_content">
-										<div class="offers_price">$90<span>per night</span></div>
-										<div class="rating_r rating_r_3 offers_rating" data-rating="3">
-											<i></i>
-											<i></i>
-											<i></i>
-											<i></i>
-											<i></i>
-										</div>
-										<p class="offers_text">Suspendisse potenti. In faucibus massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu convallis tortor. Lorem ipsum dolor sit amet.</p>
-										<div class="offers_icons">
-											<ul class="offers_icons_list">
-												<li class="offers_icons_item"><img src="images/post.png" alt=""></li>
-												<li class="offers_icons_item"><img src="images/compass.png" alt=""></li>
-												<li class="offers_icons_item"><img src="images/bicycle.png" alt=""></li>
-												<li class="offers_icons_item"><img src="images/sailboat.png" alt=""></li>
-											</ul>
-										</div>
-										<div class="button book_button"><a href="#">book<span></span><span></span><span></span></a></div>
-										<div class="offer_reviews">
-											<div class="offer_reviews_content">
-												<div class="offer_reviews_title">very good</div>
-												<div class="offer_reviews_subtitle">100 reviews</div>
-											</div>
-											<div class="offer_reviews_rating text-center">8.1</div>
+											<div class="offer_reviews_rating text-center"  th:text="${place.view}" ></div>
 										</div>
 									</div>
 								</div>

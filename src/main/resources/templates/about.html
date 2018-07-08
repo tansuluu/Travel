@@ -1,5 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
 <title>About Us</title>
 <meta charset="utf-8">
@@ -18,8 +20,6 @@
 <body>
 
 <div class="super_container">
-	
-	<!-- Header -->
 
 	<header class="header">
 
@@ -29,24 +29,27 @@
 			<div class="container">
 				<div class="row">
 					<div class="col d-flex flex-row">
-						<div class="phone">+7 707 777 77 77</div>
 						<div class="social">
 							<ul class="social_list">
-								
+
 								<li class="social_list_item"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
 								<li class="social_list_item"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
 								<li class="social_list_item"><a href="#"><i class="fa fa-vk" aria-hidden="true"></i></a></li>
 								<li class="social_list_item"><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-								
+
 							</ul>
 						</div>
 						<div class="user_box ml-auto">
-							<div class="user_box_login user_box_link"><a href="profile/index.html">login</a></div>
-							<div class="user_box_register user_box_link"><a href="login/index.html">register</a></div>
+							<div class="user_box_register user_box_link"><a th:if="${#request.userPrincipal != null}" th:href="@{/logout}">Logout</a></div>
+							<div class="user_box_register user_box_link"><a th:if="${#request.userPrincipal != null}" th:href="@{/userPage(username=${#request.userPrincipal.name})}"  th:text="${#request.userPrincipal.name}"></a></div>
+
+							<div class="user_box_register user_box_link"><a th:if="${#request.userPrincipal == null}" th:href="@{/register}">Register</a></div>
+							<div class="user_box_register user_box_link"><a th:if="${#request.userPrincipal == null}" th:href="@{/login}">Login</a></div>
+
 						</div>
 					</div>
 				</div>
-			</div>		
+			</div>
 		</div>
 
 		<!-- Main Navigation -->
@@ -60,11 +63,11 @@
 						</div>
 						<div class="main_nav_container ml-auto">
 							<ul class="main_nav_list">
-								<li class="main_nav_item"><a href="index.html">home</a></li>
-								<li class="main_nav_item"><a href="#">about almaty</a></li>
-								<li class="main_nav_item"><a href="offers.html">offers</a></li>
-								<li class="main_nav_item"><a href="blog.html">blog</a></li>
-								<li class="main_nav_item"><a href="contact.html">contact</a></li>
+								<li class="main_nav_item"><a th:href="@{/}">home</a></li>
+								<li class="main_nav_item"><a th:href="@{/about}">about almaty</a></li>
+								<li class="main_nav_item"><a th:href="@{/offers}">offers</a></li>
+								<li class="main_nav_item"><a th:href="@{/blog}">blog</a></li>
+								<li class="main_nav_item"><a th:href="@{/contact}">contact</a></li>
 							</ul>
 						</div>
 						<div class="content_search ml-lg-0 ml-auto">
@@ -94,13 +97,13 @@
 						<form id="search_form" class="search_form bez_1">
 							<input type="search" class="search_content_input bez_1">
 						</form>
-						
+
 						<div class="hamburger">
 							<i class="fa fa-bars trans_200"></i>
 						</div>
 					</div>
 				</div>
-			</div>	
+			</div>
 		</nav>
 
 	</header>
@@ -110,11 +113,11 @@
 			<div class="menu_close_container"><div class="menu_close"></div></div>
 			<div class="logo menu_logo"><a href="#"><img src="images/logo.png" alt=""></a></div>
 			<ul>
-				<li class="menu_item"><a href="index.html">home</a></li>
-				<li class="menu_item"><a href="#">about Almaty</a></li>
-				<li class="menu_item"><a href="offers.html">offers</a></li>
-				<li class="menu_item"><a href="blog.html">news</a></li>
-				<li class="menu_item"><a href="contact.html">contact</a></li>
+				<li class="menu_item"><a th:href="@{/}">home</a></li>
+				<li class="menu_item"><a th:href="@{/about}">about us</a></li>
+				<li class="menu_item"><a th:href="@{/offers}">offers</a></li>
+				<li class="menu_item"><a th:href="@{/blog}">blog</a></li>
+				<li class="menu_item"><a th:href="@{/contact}">contact</a></li>
 			</ul>
 		</div>
 	</div>
@@ -124,7 +127,7 @@
 	<div class="home">
 		<div class="home_background parallax-window" data-parallax="scroll" data-image-src="images/home_slide2.jpg"></div>
 		<div class="home_content">
-			<div class="home_title">about Almaty</div>
+			<div class="home_title">about Kok-Zhailau</div>
 		</div>
 	</div>
 
@@ -134,12 +137,13 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-7">
-					<div class="intro_image"><img src="images/history.jpg" alt=""></div>
+					<div class="intro_image"><img src="http://gorny-club.kz/wp-content/uploads/2016/10/kzh-panorama-1000x500.jpg" alt=""></div>
 				</div>
 				<div class="col-lg-5">
 					<div class="intro_content">
-						<div class="intro_title">The history of Almaty city</div>
-						<p class="intro_text">Almaty Ala Tau, northern spur of hills Tean Shan at height from 670 up to 1700 m above sea level, in valleys of the rivers Big and Small Almaty's is located in southern - east part of republic, at ridge Zaili.A climate of city - continental. The mid-annual long-term temperature +9 ° With, absolute maximal temperature +46 ° With, minimal-37 ° S.Ploshchad cities makes 330 км2, the population for January, 1, 2004 almost 1,2 million person. The city has been incorporated as military strengthening Zaili in 1854 when after connection of Kazakhstan to Russia there was a necessity of strengthening of imperial authority in Semirechie.
+
+						<p class="intro_text">The Kok-Zhailau plateau is a popular tourist attraction. The area is accessible for hiking, biking, skiing, and horse riding. It is the only reachable area within the Ile-Alatau National Park.
+							The area is major tourist attraction on account of its unspoilt nature. Ecotourism is also prevalent in the area. This also includes scientific ecotourism, cognitive ecotourism, blindwatching, botanical excursions, video and photo excursions, ethnic tourism, and other activities.
 						</p>
 
 						
@@ -150,164 +154,6 @@
 	</div>
 
 <!-- Intro -->
-
-	<div class="trending">
-		<div class="container">
-			<div class="row">
-				<div class="col text-center">
-					<h2 class="section_title">trending now</h2>
-				</div>
-			</div>
-			<div class="row trending_container">
-
-				<!-- Trending Item -->
-				<div class="col-lg-3 col-sm-6">
-					<div class="trending_item clearfix">
-						<div class="trending_image"><img src="images/trend_1.png" alt="https://unsplash.com/@fransaraco"></div>
-						<div class="trending_content">
-							<div class="trending_title"><a href="file:///Users/macbook/Downloads/travelix/places.html">grand hotel</a></div>
-							<div class="trending_price">From $182</div>
-							<div class="trending_location">madrid, spain</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Trending Item -->
-				<div class="col-lg-3 col-sm-6">
-					<div class="trending_item clearfix">
-						<div class="trending_image"><img src="images/trend_2.png" alt="https://unsplash.com/@grovemade"></div>
-						<div class="trending_content">
-							<div class="trending_title"><a href="#">mars hotel</a></div>
-							<div class="trending_price">From $182</div>
-							<div class="trending_location">madrid, spain</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Trending Item -->
-				<div class="col-lg-3 col-sm-6">
-					<div class="trending_item clearfix">
-						<div class="trending_image"><img src="images/trend_3.png" alt="https://unsplash.com/@jbriscoe"></div>
-						<div class="trending_content">
-							<div class="trending_title"><a href="#">queen hotel</a></div>
-							<div class="trending_price">From $182</div>
-							<div class="trending_location">madrid, spain</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Trending Item -->
-				<div class="col-lg-3 col-sm-6">
-					<div class="trending_item clearfix">
-						<div class="trending_image"><img src="images/trend_4.png" alt="https://unsplash.com/@oowgnuj"></div>
-						<div class="trending_content">
-							<div class="trending_title"><a href="#">mars hotel</a></div>
-							<div class="trending_price">From $182</div>
-							<div class="trending_location">madrid, spain</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Trending Item -->
-				<div class="col-lg-3 col-sm-6">
-					<div class="trending_item clearfix">
-						<div class="trending_image"><img src="images/trend_5.png" alt="https://unsplash.com/@mindaugas"></div>
-						<div class="trending_content">
-							<div class="trending_title"><a href="#">grand hotel</a></div>
-							<div class="trending_price">From $182</div>
-							<div class="trending_location">madrid, spain</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Trending Item -->
-				<div class="col-lg-3 col-sm-6">
-					<div class="trending_item clearfix">
-						<div class="trending_image"><img src="images/trend_6.png" alt="https://unsplash.com/@itsnwa"></div>
-						<div class="trending_content">
-							<div class="trending_title"><a href="#">mars hotel</a></div>
-							<div class="trending_price">From $182</div>
-							<div class="trending_location">madrid, spain</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Trending Item -->
-				<div class="col-lg-3 col-sm-6">
-					<div class="trending_item clearfix">
-						<div class="trending_image"><img src="images/trend_7.png" alt="https://unsplash.com/@rktkn"></div>
-						<div class="trending_content">
-							<div class="trending_title"><a href="#">queen hotel</a></div>
-							<div class="trending_price">From $182</div>
-							<div class="trending_location">madrid, spain</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Trending Item -->
-				<div class="col-lg-3 col-sm-6">
-					<div class="trending_item clearfix">
-						<div class="trending_image"><img src="images/trend_8.png" alt="https://unsplash.com/@thoughtcatalog"></div>
-						<div class="trending_content">
-							<div class="trending_title"><a href="#">mars hotel</a></div>
-							<div class="trending_price">From $182</div>
-							<div class="trending_location">madrid, spain</div>
-						</div>
-					</div>
-				</div>
-
-			</div>
-		</div>
-	</div>
-		
-
-
-	<!-- Milestones -->
-
-	<div class="milestones">
-		<div class="container">
-			<div class="row">
-				
-				<!-- Milestone -->
-				<div class="col-lg-3 milestone_col">
-					<div class="milestone text-center">
-						<div class="milestone_icon"><img src="images/milestone_1.png" alt=""></div>
-						<div class="milestone_counter" data-end-value="0">0</div>
-						<div class="milestone_text">Tourists</div>
-					</div>
-				</div>
-
-				<!-- Milestone -->
-				<div class="col-lg-3 milestone_col">
-					<div class="milestone text-center">
-						<div class="milestone_icon"><img src="images/milestone_2.png" alt=""></div>
-						<div class="milestone_counter" data-end-value="0">0</div>
-						<div class="milestone_text">Entartainment Places</div>
-					</div>
-				</div>
-
-				<!-- Milestone -->
-				<div class="col-lg-3 milestone_col">
-					<div class="milestone text-center">
-						<div class="milestone_icon"><img src="images/milestone_3.png" alt=""></div>
-						<div class="milestone_counter" data-end-value="0">0</div>
-						<div class="milestone_text">Partners</div>
-					</div>
-				</div>
-
-				<!-- Milestone -->
-				<div class="col-lg-3 milestone_col">
-					<div class="milestone text-center">
-						<div class="milestone_icon"><img src="images/milestone_4.png" alt=""></div>
-						<div class="milestone_counter" data-end-value="0">0</div>
-						<div class="milestone_text">Tour Guides</div>
-					</div>
-				</div>
-
-			</div>
-		</div>
-	</div>
-
 	<!-- Footer -->
 
 	<footer class="footer">
